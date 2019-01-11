@@ -2,7 +2,8 @@ hucow = {
 	potential = {
 		is_female = yes
 		age = 16
-	  }
+		}
+	health = 0.5
 	fertility = 0.15
 	learning = -2
 }

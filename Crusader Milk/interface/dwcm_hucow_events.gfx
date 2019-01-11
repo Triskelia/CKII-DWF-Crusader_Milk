@@ -1,0 +1,6 @@
+spriteTypes = {
+	spriteType = {
+		name = "becoming_hucow"
+		texturefile = "gfx/event_pictures/becoming_hucow.dds"
+	}
+}
