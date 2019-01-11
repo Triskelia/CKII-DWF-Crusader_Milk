@@ -1,0 +1,23 @@
+###########################
+# Hucow related decisions #
+###########################
+
+decisions = {
+	dwcm_become_hucow = {
+		potential = {
+			ai = no # Only the player should ever see this
+			NOT = { trait = hucow }
+			is_female = yes
+			age = 16
+		}
+		allow = {
+			always = yes # It should always be displayed if it is relevant
+		}
+		effect = {
+			narrative_event = { id = DWCMHucow.10 }
+		}
+		ai_will_do = {
+			factor = 0 # Zero chance the ai uses this
+		}
+	}
+}

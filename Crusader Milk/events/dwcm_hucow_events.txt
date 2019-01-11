@@ -1,0 +1,18 @@
+namespace = DWCMHucow
+
+#.10 Basic event to give the hucow trait
+narrative_event = {
+  	id = DWCMHucow.10
+	desc = "DWCMHucow10"
+	picture = becoming_hucow
+	title = dwcm_becoming_hucow
+
+	is_triggered_only = yes # triggered via decision
+	only_women = yes
+	min_age = 16
+
+	option = {
+		name = "DWCMHucow10A"
+		add_trait = hucow
+	}
+}
