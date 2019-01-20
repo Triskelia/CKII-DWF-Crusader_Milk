@@ -22,7 +22,7 @@ Short Term:
 
 - Improved event chain to become a hucow (as well as turning others into one)
 - Milking and Breast fullness system
-- Drugs and herbs to alter someone breasts or milk production (as well as arousal or other atribute)
+- Drugs and herbs to alter someone else breasts or milk production (as well as arousal or other atribute)
 
 Long Term:
 

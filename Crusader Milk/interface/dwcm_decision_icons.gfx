@@ -4,3 +4,10 @@ spriteTypes = {
 		texturefile = "gfx/interface/dwcm_become_hucow.dds"
 	}
 }
+
+spriteTypes = {
+	spriteType = {
+		name = "GFX_dwcm_hucow_milking"
+		texturefile = "gfx/interface/dwcm_hucow_milking.dds"
+	}
+}

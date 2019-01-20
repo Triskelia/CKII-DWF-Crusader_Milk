@@ -1,8 +1,17 @@
 #CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 #Decisions
 dwcm_become_hucow;Become a Hucow;;;;;;;;;;;;;x
-dwcm_become_hucow_desc;Now that you have heard of these "hucows", it's up to you to become like them;;;;;;;;;;;;;x
+dwcm_become_hucow_desc;Now that you have heard of those "hucows", it is up to you to become like them;;;;;;;;;;;;;x
+dwcm_hucow_milking;Milk yourself;;;;;;;;;;;;;x
+dwcm_hucow_milking_desc;Maybe it is time to empty these heavy breasts of yours;;;;;;;;;;;;;x
+
 #Events
 dwcm_becoming_hucow;Becoming a Hucow;;;;;;;;;;;;;x
-DWCMHucow10;You are now a hucow (Placeholder);;;;;;;;;;;;;x
+DWCMHucow10;You are now a hucow (#TODO Placeholder);;;;;;;;;;;;;x
 DWCMHucow10A;Great! Time to get milked;;;;;;;;;;;;;x
+dwcm_hucow_milking;Milking time!;;;;;;;;;;;;;x
+DWCMHucow20;You decided to milk yourself and find it really enjoyable (#TODO Placeholder);;;;;;;;;;;;;x
+DWCMHucow20A;I will have to do it again!;;;;;;;;;;;;;x
+
+#Modifiers
+recently_milked;Recently milked;;;;;;;;;;;;;x

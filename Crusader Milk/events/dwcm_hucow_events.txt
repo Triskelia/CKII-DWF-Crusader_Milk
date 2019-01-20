@@ -1,3 +1,7 @@
+########################
+# Hucow related Events #
+########################
+
 namespace = DWCMHucow
 
 #.10 Basic event to give the hucow trait
@@ -7,12 +11,35 @@ narrative_event = {
 	picture = becoming_hucow
 	title = dwcm_becoming_hucow
 
-	is_triggered_only = yes # triggered via decision
+	is_triggered_only = yes # triggered via decision dwcm_become_hucow
+	capable_only = yes
 	only_women = yes
 	min_age = 16
 
 	option = {
 		name = "DWCMHucow10A"
 		add_trait = hucow
+	}
+}
+
+#.20 Basic milking event
+narrative_event = {
+  	id = DWCMHucow.20
+	desc = "DWCMHucow20"
+	picture = hucow_milking
+	title = dwcm_hucow_milking
+
+	is_triggered_only = yes # triggered via decision dwcm_hucow_milking
+	capable_only = yes
+	only_women = yes
+	min_age = 16
+
+	option = {
+		name = "DWCMHucow20A"
+		add_character_modifier = {
+  			modifier = recently_milked
+  			duration = 30
+		}
+		# TODO add a chance to remove stressed or depressed trait
 	}
 }

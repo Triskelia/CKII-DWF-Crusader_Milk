@@ -2,6 +2,7 @@
 # Hucow related decisions #
 ###########################
 
+# Decision to become a hucow
 decisions = {
 	dwcm_become_hucow = {
 		potential = {
@@ -18,6 +19,32 @@ decisions = {
 		}
 		ai_will_do = {
 			factor = 0 # Zero chance the ai uses this
+		}
+	}
+}
+
+# Self milking
+decisions = {
+	dwcm_hucow_milking = {
+		potential = {
+			ai = no # Only the player should ever see this
+			trait = hucow
+			is_female = yes
+			age = 16
+		}
+		allow = {
+			NOR = {
+				has_character_modifier = recently_milked
+				trait = incapable
+			}
+			# TODO Add more conditions? (physical conditions...)
+		}
+		effect = {
+			narrative_event = { id = DWCMHucow.20 }
+		}
+		ai_will_do = {
+			factor = 0 # Zero chance the ai uses this
+			# TODO chaste or celibate (+ other traits?) will reduce chances that an ai character pick the decision
 		}
 	}
 }

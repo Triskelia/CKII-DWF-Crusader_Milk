@@ -4,3 +4,10 @@ spriteTypes = {
 		texturefile = "gfx/event_pictures/becoming_hucow.dds"
 	}
 }
+
+spriteTypes = {
+	spriteType = {
+		name = "hucow_milking"
+		texturefile = "gfx/event_pictures/milking_self_01.dds"
+	}
+}
