@@ -1,17 +1,21 @@
 #CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 #Decisions
-dwcm_become_hucow;Become a Hucow;;;;;;;;;;;;;x
-dwcm_become_hucow_desc;Now that you have heard of those "hucows", it is up to you to become like them;;;;;;;;;;;;;x
-dwcm_hucow_milking;Milk yourself;;;;;;;;;;;;;x
-dwcm_hucow_milking_desc;Maybe it is time to empty these heavy breasts of yours;;;;;;;;;;;;;x
+dwcm_become_hucow;Become a hucow;Devenir une hucow;;;;;;;;;;;;x
+dwcm_become_hucow_desc;Now that you have heard of those "hucows", it is up to you to become like them;Maintenant que vous avez entendus parlé des ces "hucows", il ne tient qu'à vous de devenir comme elles;;;;;;;;;;;;x
+dwcm_hucow_milking;Milk yourself;Se traire;;;;;;;;;;;;x
+dwcm_hucow_milking_desc;Maybe it is time to empty these heavy breasts of yours;Il est peut-être temps d'alléger vos lourds seins;;;;;;;;;;;;x
 
 #Events
-dwcm_becoming_hucow;Becoming a Hucow;;;;;;;;;;;;;x
-DWCMHucow10;You are now a hucow (#TODO Placeholder);;;;;;;;;;;;;x
-DWCMHucow10A;Great! Time to get milked;;;;;;;;;;;;;x
-dwcm_hucow_milking;Milking time!;;;;;;;;;;;;;x
-DWCMHucow20;You decided to milk yourself and find it really enjoyable (#TODO Placeholder);;;;;;;;;;;;;x
-DWCMHucow20A;I will have to do it again!;;;;;;;;;;;;;x
+dwcm_lacteria_research_title;The mystery of "Lacteria Mirifica";Le mystère de la "Lacteria Mirifica";;;;;;;;;;;;x
+DWCMHucow01;You recently got your hands on a plant called "Lacteria Mirifica". The man who gave it to you said it can have potent effects on the body. Some research would be necessary in order to learn more about these said effects (#Placeholder);Vous avez récemment mis la main sur une plante appelée "Lacteria Mirifica". L'homme qui vous l'a donné a dit qu'elle pouvait avoir des effets puissants sur le corps. Des recherches supplémentaires seraient nécessaires pour en savoir plus sur ces effets (#Placeholder);;;;;;;;;;;;x
+DWCMHucow01A;I shall discover more about this misterious plant;J'en découvrirais plus à propos de cette cette plante;;;;;;;;;;;;x
+DWCMHucow01B;No, I have no time to waste with this;Non, je n'ai pas de temps à perdre avec ça;;;;;;;;;;;;x
+dwcm_becoming_hucow_title;Becoming a hucow;Devenir une hucow;;;;;;;;;;;;x
+DWCMHucow10;You are now a hucow (#Placeholder);Vous êtes maintenant une hucow;;;;;;;;;;;;x
+DWCMHucow10A;Great! Time to get milked;Superbe! Il est temps de se faire traire;;;;;;;;;;;;x
+dwcm_hucow_milking_title;Milking time!;Traite!;;;;;;;;;;;;x
+DWCMHucow20;You decided to milk yourself and find it really enjoyable (#Placeholder);Vous décidez de vous traire, et trouvez cela très agréable;;;;;;;;;;;;x
+DWCMHucow20A;I will have to do it again!;Il faudra que je le refasse;;;;;;;;;;;;x
 
 #Modifiers
-recently_milked;Recently milked;;;;;;;;;;;;;x
+recently_milked;Recently milked;traite récente;;;;;;;;;;;;x

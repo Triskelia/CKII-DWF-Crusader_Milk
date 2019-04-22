@@ -11,3 +11,10 @@ spriteTypes = {
 		texturefile = "gfx/event_pictures/milking_self_01.dds"
 	}
 }
+
+spriteTypes = {
+	spriteType = {
+		name = "lacteria_research"
+		texturefile = "gfx/event_pictures/lacteria_research.dds"
+	}
+}

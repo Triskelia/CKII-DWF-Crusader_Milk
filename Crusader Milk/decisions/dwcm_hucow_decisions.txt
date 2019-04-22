@@ -37,14 +37,14 @@ decisions = {
 				has_character_modifier = recently_milked
 				trait = incapable
 			}
-			# TODO Add more conditions? (physical conditions...)
+			#TODO Add more conditions? (physical conditions...)
 		}
 		effect = {
 			narrative_event = { id = DWCMHucow.20 }
 		}
 		ai_will_do = {
 			factor = 0 # Zero chance the ai uses this
-			# TODO chaste or celibate (+ other traits?) will reduce chances that an ai character pick the decision
+			#TODO chaste or celibate (+ other traits?) will reduce chances that an ai character picks the decision
 		}
 	}
 }

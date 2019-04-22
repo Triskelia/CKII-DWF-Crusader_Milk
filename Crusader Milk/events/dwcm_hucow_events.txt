@@ -1,23 +1,75 @@
 ########################
-# Hucow related Events #
+# Hucow related events #
 ########################
 
 namespace = DWCMHucow
+
+# Start research on Lacteria Mirifica
+narrative_event = {
+	id = DWCMHucow.01
+	desc = "DWCMHucow01"
+	picture = lacteria_research
+	title = "dwcm_lacteria_research_title"
+	ai = no	
+	only_playable = yes # only players get this
+	min_age =  16
+	capable_only = yes
+	prisoner = no
+ 	trigger = {
+		NOT = { has_character_flag = dwcm_lacteria_knowledge }
+		NOT = { has_character_flag = dwcm_lacteria_research_stopped }
+		any_demesne_title = {
+			OR = { # Need to own at least one alchemy building
+				has_building = dw_alchemist_shop_1
+				has_building = dw_alchemist_shop_2
+				has_building = dw_alchemist_shop_3
+				has_building = dw_herbalist_wagon
+				has_building = dw_mystic_hut
+				has_building = dw_alchemist_den_1
+				has_building = dw_alchemist_den_2
+				has_building = dw_alchemist_den_3
+				has_building = dwf_mr_alchemist_1
+				has_building = dwf_mr_alchemist_2
+				has_building = dwf_mr_alchemist_3
+			}
+		}
+		OR = { # Need to have some interest in plant studies
+			has_focus = focus_scholarship
+			trait = gardener
+			trait = mystic
+			trait = scholar
+			trait = erudite
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 48
+	}	
+	
+	option = {
+		name = "DWCMHucow01A" # I shall discover more about this misterious plant
+		set_character_flag = dwcm_lacteria_knowledge
+	}
+	option = {
+		name = "DWCMHucow01B"  # No, I have no time to waste with this
+		set_character_flag = dwcm_lacteria_research_stopped
+	}
+}
 
 #.10 Basic event to give the hucow trait
 narrative_event = {
   	id = DWCMHucow.10
 	desc = "DWCMHucow10"
 	picture = becoming_hucow
-	title = dwcm_becoming_hucow
+	title = "dwcm_becoming_hucow_title"
 
 	is_triggered_only = yes # triggered via decision dwcm_become_hucow
 	capable_only = yes
 	only_women = yes
 	min_age = 16
 
-	option = {
-		name = "DWCMHucow10A"
+	option = { 
+		name = "DWCMHucow10A" # Great! Time to get milked
 		add_trait = hucow
 	}
 }
@@ -27,7 +79,7 @@ narrative_event = {
   	id = DWCMHucow.20
 	desc = "DWCMHucow20"
 	picture = hucow_milking
-	title = dwcm_hucow_milking
+	title = "dwcm_hucow_milking_title"
 
 	is_triggered_only = yes # triggered via decision dwcm_hucow_milking
 	capable_only = yes
@@ -35,11 +87,11 @@ narrative_event = {
 	min_age = 16
 
 	option = {
-		name = "DWCMHucow20A"
+		name = "DWCMHucow20A" # I will have to do it again!
 		add_character_modifier = {
   			modifier = recently_milked
   			duration = 30
 		}
-		# TODO add a chance to remove stressed or depressed trait
+		#TODO add a chance to remove stressed or depressed trait
 	}
 }
