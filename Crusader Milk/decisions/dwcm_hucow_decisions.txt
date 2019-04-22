@@ -15,7 +15,7 @@ decisions = {
 			always = yes # It should always be displayed if it is relevant
 		}
 		effect = {
-			narrative_event = { id = DWCMHucow.10 }
+			narrative_event = { id = DWCMHucow.200 }
 		}
 		ai_will_do = {
 			factor = 0 # Zero chance the ai uses this
@@ -40,7 +40,7 @@ decisions = {
 			#TODO Add more conditions? (physical conditions...)
 		}
 		effect = {
-			narrative_event = { id = DWCMHucow.20 }
+			narrative_event = { id = DWCMHucow.201 }
 		}
 		ai_will_do = {
 			factor = 0 # Zero chance the ai uses this

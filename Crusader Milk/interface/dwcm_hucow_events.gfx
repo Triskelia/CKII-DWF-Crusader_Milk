@@ -18,3 +18,10 @@ spriteTypes = {
 		texturefile = "gfx/event_pictures/lacteria_research.dds"
 	}
 }
+
+spriteTypes = {
+	spriteType = {
+		name = "lacteria_research_02"
+		texturefile = "gfx/event_pictures/lacteria_research_02.dds"
+	}
+}

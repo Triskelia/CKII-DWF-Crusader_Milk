@@ -4,10 +4,10 @@
 
 namespace = DWCMHucow
 
-# Start research on Lacteria Mirifica
+# .100 Start research on Lacteria Mirifica
 narrative_event = {
-	id = DWCMHucow.01
-	desc = "DWCMHucow01"
+	id = DWCMHucow.100
+	desc = "DWCMHucow100"
 	picture = lacteria_research
 	title = "dwcm_lacteria_research_title"
 	ai = no	
@@ -39,55 +39,106 @@ narrative_event = {
 			trait = mystic
 			trait = scholar
 			trait = erudite
+			trait = physician
 		}
 	}
 
 	mean_time_to_happen = {
-		months = 48
+		# months = 12 
+		days = 12 #TEST
 	}	
 	
 	option = {
-		name = "DWCMHucow01A" # I shall discover more about this misterious plant
+		name = "DWCMHucow100A" # I shall discover more about this mysterious plant
 		set_character_flag = dwcm_lacteria_knowledge
+		hidden_tooltip = { narrative_event = { id = "DWCMHucow.101" days = 90  random = 90 } }
 	}
 	option = {
-		name = "DWCMHucow01B"  # No, I have no time to waste with this
+		name = "DWCMHucow100B"  # No, I have no time to waste with this
 		set_character_flag = dwcm_lacteria_research_stopped
 	}
 }
 
-#.10 Basic event to give the hucow trait
+# .101 progress on Lacteria Mirifica research
 narrative_event = {
-  	id = DWCMHucow.10
-	desc = "DWCMHucow10"
+	id = DWCMHucow.101
+	desc = "DWCMHucow101"
+	picture = lacteria_research_02
+	title = "dwcm_lacteria_research_title"
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "DWCMHucow101A" # What could possibly go wrong?
+		trigger = {
+			OR = {
+				trait = lunatic
+				trait = possessed
+				trait = brave
+				trait = trusting
+			}
+		}
+		add_character_modifier = { #Placeholder
+  			modifier = recently_milked
+  			duration = 30
+		}
+		hidden_tooltip = { narrative_event = { id = "DWCMHucow.102" } }
+	}
+	option = {
+		name = "DWCMHucow101B" # Better be cautious
+		hidden_tooltip = { narrative_event = { id = "DWCMHucow.103" } }
+	}
+
+}
+
+#.102 Lacteria Mirifica blind test
+narrative_event = { #TODO to complete
+  	id = DWCMHucow.102
+	desc = "DWCMHucow102"
+	picture = lacteria_research_blind_test
+	title = "dwcm_lacteria_research_title"
+
+	is_triggered_only = yes # triggered via decision dwcm_become_hucow
+
+}
+
+#.103 Lacteria Mirifica research progresses even more
+narrative_event = { #TODO to complete
+  	id = DWCMHucow.103
+	desc = "DWCMHucow103"
+	picture = lacteria_research_03
+	title = "dwcm_lacteria_research_title"
+
+	is_triggered_only = yes # triggered via decision dwcm_become_hucow
+
+}
+
+#.200 Basic event to give the hucow trait
+narrative_event = {
+  	id = DWCMHucow.200
+	desc = "DWCMHucow200"
 	picture = becoming_hucow
 	title = "dwcm_becoming_hucow_title"
 
 	is_triggered_only = yes # triggered via decision dwcm_become_hucow
-	capable_only = yes
-	only_women = yes
-	min_age = 16
 
 	option = { 
-		name = "DWCMHucow10A" # Great! Time to get milked
+		name = "DWCMHucow200A" # Great! Time to get milked
 		add_trait = hucow
 	}
 }
 
-#.20 Basic milking event
+#.201 Basic milking event
 narrative_event = {
-  	id = DWCMHucow.20
-	desc = "DWCMHucow20"
+  	id = DWCMHucow.201
+	desc = "DWCMHucow201"
 	picture = hucow_milking
 	title = "dwcm_hucow_milking_title"
 
 	is_triggered_only = yes # triggered via decision dwcm_hucow_milking
-	capable_only = yes
-	only_women = yes
-	min_age = 16
 
 	option = {
-		name = "DWCMHucow20A" # I will have to do it again!
+		name = "DWCMHucow201A" # I will have to do it again!
 		add_character_modifier = {
   			modifier = recently_milked
   			duration = 30

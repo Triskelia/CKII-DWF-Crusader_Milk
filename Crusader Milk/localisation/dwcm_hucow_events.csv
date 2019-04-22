@@ -7,15 +7,18 @@ dwcm_hucow_milking_desc;Maybe it is time to empty these heavy breasts of yours;I
 
 #Events
 dwcm_lacteria_research_title;The mystery of "Lacteria Mirifica";Le mystère de la "Lacteria Mirifica";;;;;;;;;;;;x
-DWCMHucow01;You recently got your hands on a plant called "Lacteria Mirifica". The man who gave it to you said it can have potent effects on the body. Some research would be necessary in order to learn more about these said effects (#Placeholder);Vous avez récemment mis la main sur une plante appelée "Lacteria Mirifica". L'homme qui vous l'a donné a dit qu'elle pouvait avoir des effets puissants sur le corps. Des recherches supplémentaires seraient nécessaires pour en savoir plus sur ces effets (#Placeholder);;;;;;;;;;;;x
-DWCMHucow01A;I shall discover more about this misterious plant;J'en découvrirais plus à propos de cette cette plante;;;;;;;;;;;;x
-DWCMHucow01B;No, I have no time to waste with this;Non, je n'ai pas de temps à perdre avec ça;;;;;;;;;;;;x
+DWCMHucow100;You recently got your hands on a plant called "Lacteria Mirifica". The man who gave it to you said it can have potent effects on the body. Some research would be necessary in order to learn more about these said effects (#Placeholder);Vous avez récemment mis la main sur une plante appelée "Lacteria Mirifica". L'homme qui vous l'a donné a dit qu'elle pouvait avoir des effets puissants sur le corps. Des recherches supplémentaires seront nécessaires pour en savoir plus sur ces effets (#Placeholder);;;;;;;;;;;;x
+DWCMHucow100A;I shall discover more about this mysterious plant;J'en découvrirais plus à propos de cette cette mystérieuse plante;;;;;;;;;;;;x
+DWCMHucow100B;No, I have no time to waste with this;Non, je n'ai pas de temps à perdre avec ça;;;;;;;;;;;;x
+DWCMHucow101;After several months of research on Lacteria Mirifica, you come to the conclusion that it should indeed have quite powerful effects on the body, although probably not permanent. Now, if only you could know what these effects might be ... Maybe eating a little bit of it could be a good way to find out?;Après plusieurs mois de recherche sur la Lacteria Mirifica, vous en venez à la conclusion que celle-ci devrait en effet avoir des effets assez puissants sur le corps, bien que probablement non permanent. Maintenant, si seulement vous pouviez savoir ce que ces effets pourraient être… Peut-être qu'en manger un petit peu pourrait-être un bon moyen de le savoir?;;;;;;;;;;;;x
+DWCMHucow101A;What could possibly go wrong?;Qu'est ce qui pourrait aller mal?;;;;;;;;;;;;x
+DWCMHucow101B;hmm, better be cautious and continue to study it;hmm, mieux vaut rester prudent et continuer à l'étudier;;;;;;;;;;;;x
 dwcm_becoming_hucow_title;Becoming a hucow;Devenir une hucow;;;;;;;;;;;;x
-DWCMHucow10;You are now a hucow (#Placeholder);Vous êtes maintenant une hucow;;;;;;;;;;;;x
-DWCMHucow10A;Great! Time to get milked;Superbe! Il est temps de se faire traire;;;;;;;;;;;;x
+DWCMHucow200;You are now a hucow (#Placeholder);Vous êtes maintenant une hucow (#Placeholder);;;;;;;;;;;;x
+DWCMHucow200A;Great! Time to get milked;Superbe! Il est temps de se faire traire;;;;;;;;;;;;x
 dwcm_hucow_milking_title;Milking time!;Traite!;;;;;;;;;;;;x
-DWCMHucow20;You decided to milk yourself and find it really enjoyable (#Placeholder);Vous décidez de vous traire, et trouvez cela très agréable;;;;;;;;;;;;x
-DWCMHucow20A;I will have to do it again!;Il faudra que je le refasse;;;;;;;;;;;;x
+DWCMHucow201;You decided to milk yourself and find it really enjoyable (#Placeholder);Vous décidez de vous traire, et trouvez cela très agréable (#Placeholder);;;;;;;;;;;;x
+DWCMHucow201A;I will have to do it again!;Il faudra que je le refasse;;;;;;;;;;;;x
 
 #Modifiers
 recently_milked;Recently milked;traite récente;;;;;;;;;;;;x
