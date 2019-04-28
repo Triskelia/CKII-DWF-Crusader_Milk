@@ -1,5 +1,4 @@
 dwcm_get_lacteria_test_subject = {
-	# immediate = {
 		if = { # We check if our last test subject is still available
 			limit = {
 				event_target:dwcm_lacteria_test_subject = { 
@@ -38,6 +37,5 @@ dwcm_get_lacteria_test_subject = {
 				}
 			}
 		}
-	# }
 }
 
