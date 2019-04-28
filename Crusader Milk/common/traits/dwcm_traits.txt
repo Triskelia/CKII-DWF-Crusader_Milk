@@ -3,7 +3,8 @@ hucow = {
 		is_female = yes
 		age = 16
 	}
+	random = no
 	health = 0.5
-	fertility = 0.15
+	fertility = 0.10
 	learning = -2
 }

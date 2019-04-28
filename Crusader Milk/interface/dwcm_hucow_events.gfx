@@ -4,24 +4,75 @@ spriteTypes = {
 		texturefile = "gfx/event_pictures/becoming_hucow.dds"
 	}
 }
-
 spriteTypes = {
 	spriteType = {
 		name = "hucow_milking"
 		texturefile = "gfx/event_pictures/milking_self_01.dds"
 	}
 }
-
 spriteTypes = {
 	spriteType = {
 		name = "lacteria_research"
 		texturefile = "gfx/event_pictures/lacteria_research.dds"
 	}
 }
-
+spriteTypes = {
+	spriteType = {
+		name = "lacteria_research_01"
+		texturefile = "gfx/event_pictures/lacteria_research_01.dds"
+	}
+}
 spriteTypes = {
 	spriteType = {
 		name = "lacteria_research_02"
 		texturefile = "gfx/event_pictures/lacteria_research_02.dds"
+	}
+}
+spriteTypes = {
+	spriteType = {
+		name = "lacteria_research_03"
+		texturefile = "gfx/event_pictures/lacteria_research_03.dds"
+	}
+}
+spriteTypes = {
+	spriteType = {
+		name = "lacteria_research_04"
+		texturefile = "gfx/event_pictures/lacteria_research_04.dds"
+	}
+}
+spriteTypes = {
+	spriteType = {
+		name = "lacteria_research_05"
+		texturefile = "gfx/event_pictures/lacteria_research_05.dds"
+	}
+}
+spriteTypes = {
+	spriteType = {
+		name = "lacteria_research_06"
+		texturefile = "gfx/event_pictures/lacteria_research_06.dds"
+	}
+}
+spriteTypes = {
+	spriteType = {
+		name = "lacteria_research_07"
+		texturefile = "gfx/event_pictures/lacteria_research_07.dds"
+	}
+}
+spriteTypes = {
+	spriteType = {
+		name = "lacteria_research_08"
+		texturefile = "gfx/event_pictures/lacteria_research_08.dds"
+	}
+}
+spriteTypes = {
+	spriteType = {
+		name = "lacteria_research_08"
+		texturefile = "gfx/event_pictures/lacteria_research_08.dds"
+	}
+}
+spriteTypes = {
+	spriteType = {
+		name = "lacteria_research_09"
+		texturefile = "gfx/event_pictures/lacteria_research_09.dds"
 	}
 }

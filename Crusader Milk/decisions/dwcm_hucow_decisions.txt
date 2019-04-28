@@ -2,29 +2,9 @@
 # Hucow related decisions #
 ###########################
 
-# Decision to become a hucow
-decisions = {
-	dwcm_become_hucow = {
-		potential = {
-			ai = no # Only the player should ever see this
-			NOT = { trait = hucow }
-			is_female = yes
-			age = 16
-		}
-		allow = {
-			always = yes # It should always be displayed if it is relevant
-		}
-		effect = {
-			narrative_event = { id = DWCMHucow.200 }
-		}
-		ai_will_do = {
-			factor = 0 # Zero chance the ai uses this
-		}
-	}
-}
 
-# Self milking
 decisions = {
+	# Self milking
 	dwcm_hucow_milking = {
 		potential = {
 			ai = no # Only the player should ever see this
@@ -32,19 +12,90 @@ decisions = {
 			is_female = yes
 			age = 16
 		}
+
 		allow = {
-			NOR = {
-				has_character_modifier = recently_milked
-				trait = incapable
-			}
+			NOT = {	has_character_modifier = recently_milked }
+			is_incapable = no
 			#TODO Add more conditions? (physical conditions...)
 		}
+
 		effect = {
-			narrative_event = { id = DWCMHucow.201 }
+			character_event = { id = DWCMHucow.010 }
 		}
+
 		ai_will_do = {
 			factor = 0 # Zero chance the ai uses this
 			#TODO chaste or celibate (+ other traits?) will reduce chances that an ai character picks the decision
+		}
+	}
+
+
+	# Resume research on Lacteria Mirifica
+	dwcm_resume_lacteria_research = {
+		potential = {
+			# only_playable = yes
+			ai = no # Only the player should ever see this
+			NOT = { has_character_flag = dwcm_lacteria_research_aborted }
+			OR = {
+				has_character_flag = dwcm_lacteria_search_paused_01
+				has_character_flag = dwcm_lacteria_search_paused_02
+				has_character_flag = dwcm_lacteria_search_paused_03
+			}
+		}
+
+		allow = {
+			prisoner = no
+			is_incapable = no
+			has_valid_alchemist = yes # Calls a scripted_trigger from DW
+		}
+
+		effect = {
+			if = {
+				limit = {
+					has_character_flag = dwcm_lacteria_search_paused_01
+				}
+				clr_character_flag = dwcm_lacteria_search_paused_01
+				narrative_event = { id = DWCMHucow.100 }
+				break = yes
+			}
+			if = {
+				limit = {
+					has_character_flag = dwcm_lacteria_search_paused_02
+				}
+				clr_character_flag = dwcm_lacteria_search_paused_02
+				narrative_event = { id = DWCMHucow.110 }
+				break = yes
+			}
+			if = {
+				limit = {
+					has_character_flag = dwcm_lacteria_search_paused_03
+				}
+				clr_character_flag = dwcm_lacteria_search_paused_03
+				narrative_event = { id = DWCMHucow.140 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0 # Zero chance the ai uses this
+		}
+	}
+
+
+	# test lactacid
+	dwcm_test_lactacid = {
+		potential = {
+			has_character_flag = dwcm_lactacid_stored
+		}
+
+		allow = {
+			prisoner = no
+			is_incapable = no
+		}
+
+		effect = {
+			clr_character_flag = dwcm_lactacid_stored
+			set_character_flag = dwcm_lactacid_tested_by_decision
+			narrative_event = { id = DWCMHucow.150 }
 		}
 	}
 }
