@@ -7,13 +7,13 @@ dwcm_resume_lacteria_research_desc;I should resume the research on this mysterio
 dwcm_test_lactacid;Test lactacid;Tester le lactacide;;;;;;;;;;;;x
 dwcm_test_lactacid_desc;Maybe it is time to test the lactacid you created;Il est peut-être temps de tester le lactacide que vous avez créé;;;;;;;;;;;;x
 
-#Modifiers
-recently_milked;Recently milked;traite récente;;;;;;;;;;;;x
-
 #Events
 dwcm_hucow_milking_title;Milking time!;Il est temps de se traire!;;;;;;;;;;;;x
-DWCMHucow010_desc;(#Placeholder) You decided to milk yourself and find it really enjoyable;(#Placeholder) Vous décidez de vous traire, et trouvez cela très agréable;;;;;;;;;;;;x
+DWCMHucow010_desc;Your breasts are starting to be full of milk, and you think it's time to milk them. You grab a jar and start to massage your breasts, then pinch your nipples while pressing on your breasts. This results in a continuous stream of milk being released from your breasts. You cannot help but let out a soft moan of pleasure as they slowly empty their milk, to the point of filling most of the jar.\n You stand up, satisfied and feeling way lighter, before storing the jar away.;Vos seins commençant à être un peu trop remplis de lait, et vous estimez qu’il est plus que temps de les traire. Vous attrapez un bocal et commencez à masser vos seins, pour ensuite pincer vos mamelons tout en pressant sur vos seins. Il en résulte un flux continu de lait s’échappant de vos seins. Vous ne pouvez vous empêcher de laisser échapper un doux gémissement de plaisir alors qu’ils se vident peu à peu de leur lait, au point de remplir la quasi-totalité du bocal.\n Vous vous relevez, satisfaite et vous sentant bien plus légère, avant de stocker le bocal.;;;;;;;;;;;;x
 DWCMHucow010A;I will have to do it again!;Il faudra que je le refasse;;;;;;;;;;;;x
+dwcm_hucow_engorged_breasts_title;Engorged breasts;Seins engorgés;;;;;;;;;;;;x
+DWCMHucow020_desc;It's been awhile since you have not been milked. Your breasts are so full of milk that it leaks on a regular basis. As a result, your clothes are often stained, to the point that you have to leave to your quarters to change. This of course has an impact on your reputation, not to mention the inconvenience that a breast of this size can cause.;Cela fait quelque temps que vous vous n’êtes pas trait. Vos seins sont tellement remplis de lait qu’il s’en écoule de façon régulière. Il en résulte que vos vêtements s’en retrouvent souvent tachés, au point que vous deviez vous retirer dans vos appartements pour vous changer. Cela à bien sûr un impact sur vôtre réputation, sans compter les inconvénients qu’une poitrine de cette taille peut engendrer.;;;;;;;;;;;;x
+DWCMHucow020A;I should probably milk them soon;Il faudrait que je pense à les traire;;;;;;;;;;;;x
 dwcm_lacteria_research_title;The mystery of the "Lacteria Mirifica";Le mystère du "Lacteria Mirifica";;;;;;;;;;;;x
 DWCMHucow100_desc;You recently got your hands on a mushroom called "Lacteria Mirifica". The woman who gave it to you said it can have potent effects on the body. Some research would be necessary in order to learn more about these said effects.;Vous avez récemment mis la main sur un champignon appelé "Lacteria Mirifica". La femme qui vous l'a donné a dit qu'il pouvait avoir des effets puissants sur le corps. Des recherches supplémentaires seront nécessaires pour en savoir plus sur ces effets.;;;;;;;;;;;;x
 DWCMHucow100A;I shall discover more about this mysterious mushroom;J'en découvrirais plus à propos de ce mystérieux champignon;;;;;;;;;;;;x

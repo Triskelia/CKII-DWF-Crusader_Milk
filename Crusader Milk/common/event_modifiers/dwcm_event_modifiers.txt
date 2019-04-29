@@ -1,5 +1,0 @@
-recently_milked = {
-	fertility = 0.2
-	health = 0.5
-	icon = 85
-}

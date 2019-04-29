@@ -15,12 +15,31 @@ character_event = {
   	is_triggered_only = yes # triggered via decision dwcm_hucow_milking
 
   	option = {
-	  	name = "DWCMHucow010A" # I will have to do it again!
-	  	add_character_modifier = {
-				modifier = recently_milked
-				duration = 30
-	  	}
+		name = "DWCMHucow010A" # I will have to do it again!
+		if = {
+			limit = {
+				trait = engorged_breasts
+			}
+			remove_trait = engorged_breasts	
+		}
+		hidden_tooltip = { narrative_event = { id = DWCMHucow.020 days = 180  random = 30 } } #TODO reset breast_fullness variable (to implement)
 	  	#TODO add a chance to remove stressed or depressed trait
+  	}
+}
+
+
+#.020 Get engorged breasts some time after having been milked
+character_event = {
+	id = DWCMHucow.020
+  	desc = "DWCMHucow020_desc"
+  	picture = hucow_engorged_breasts
+  	title = "dwcm_hucow_engorged_breasts_title"
+
+  	is_triggered_only = yes #TODO Trigger based on the breast_fullness value (to implement)
+
+  	option = {
+		name = "DWCMHucow020A" # Maybe I should milk myself soon
+		add_trait = engorged_breasts
   	}
 }
 
@@ -43,25 +62,25 @@ narrative_event = {
 		NOT = { has_character_flag = dwcm_lacteria_research_aborted }
 		NOT = { has_character_flag = dwcm_lacteria_research_completed }
 		has_valid_alchemist = yes # Calls a scripted_trigger from DW
-		OR = { # Need to have some interest in plant studies
+		OR = { # Need to have some interest in plant studies or research in general
 			has_focus = focus_scholarship
 			trait = gardener
 			trait = mystic
 			trait = scholar
 			trait = erudite
 			trait = physician
+			trait = dz_herbalist # Only matters if DroZzhat's Mod is present
 		}
 	}
 
 	mean_time_to_happen = {
-		# months = 12
-		days = 12 #TWEAK
+		months = 6
 	}	
 	
 	option = {
 		name = "DWCMHucow100A" # I shall discover more about this mysterious mushroom
 		set_character_flag = dwcm_lacteria_research_started
-		hidden_tooltip = { narrative_event = { id = DWCMHucow.110 days = 90  random = 90 } }
+		hidden_tooltip = { narrative_event = { id = DWCMHucow.110 days = 90  random = 30 } }
 	}
 	option = {
 		name = "DWCMHucow100B" # Continue later [PAUSE EVENT CHAIN]
@@ -121,7 +140,7 @@ narrative_event = {
 
   	option = {
 	  	name = "DWCMHucow120A" # Well, that was intense
-	  	hidden_tooltip = { narrative_event = { id = DWCMHucow.140 days = 90  random = 90 } }
+	  	hidden_tooltip = { narrative_event = { id = DWCMHucow.140 days = 90  random = 30 } }
   	}
 }
 
@@ -137,7 +156,7 @@ narrative_event = {
 
 	option = {
 		name = "DWCMHucow130A" # Takes note on how the subject reacts
-		hidden_tooltip = { narrative_event = { id = DWCMHucow.140 days = 90  random = 90 } }
+		hidden_tooltip = { narrative_event = { id = DWCMHucow.140 days = 90  random = 30 } }
 	}
 }
 
@@ -274,6 +293,7 @@ narrative_event = {
 	  	add_trait = hucow
 	  	clr_character_flag = dwcm_lacteria_research_started
 		set_character_flag = dwcm_lacteria_research_completed
+		hidden_tooltip = { narrative_event = { id = DWCMHucow.020 days = 180  random = 30 } }
   	}
 }
 
@@ -303,7 +323,7 @@ narrative_event = {
 
 
 #.190 Test subject becomes a hucow
-narrative_event = { #TODO to complete
+narrative_event = {
 	id = DWCMHucow.190
   	desc = "DWCMHucow190_desc"
  	picture = lacteria_research_09

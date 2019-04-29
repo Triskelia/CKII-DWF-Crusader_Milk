@@ -14,8 +14,8 @@ decisions = {
 		}
 
 		allow = {
-			NOT = {	has_character_modifier = recently_milked }
 			is_incapable = no
+			trait = engorged_breasts
 			#TODO Add more conditions? (physical conditions...)
 		}
 
