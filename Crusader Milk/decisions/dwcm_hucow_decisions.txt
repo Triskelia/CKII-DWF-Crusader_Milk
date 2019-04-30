@@ -16,7 +16,6 @@ decisions = {
 		allow = {
 			is_incapable = no
 			trait = engorged_breasts
-			#TODO Add more conditions? (physical conditions...)
 		}
 
 		effect = {
