@@ -1,3 +1,5 @@
 #CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
-hucow;Hucow;;;;;;;;;;;;;x
-hucow_desc;This character is a hucow, able to produce milk even when not pregnant.;;;;;;;;;;;;;x
+hucow;Hucow;Hucow;;;;;;;;;;;;x
+hucow_desc;This character is a hucow, able to produce milk even when not pregnant.;Ce personnage est une hucow, capable de produire du lait sans être enceinte;;;;;;;;;;;;x
+engorged_breasts;Engorged breasts;Seins engorgés;;;;;;;;;;;;x
+engorged_breasts_desc;This character hasn't been milked in a while. Her breasts are distracting her from the almost constant leaking of milk, imparing her in her daily life;Ce personnage n'a pas été trait depuis longtemps. Ses seins la déconcentrent de part l'écoulement quasi constant the lait, ce qui impacte son quotidien;;;;;;;;;;;;x

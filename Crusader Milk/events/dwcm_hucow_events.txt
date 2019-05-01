@@ -1,18 +1,342 @@
+########################
+# Hucow related events #
+########################
+
 namespace = DWCMHucow
 
-#.10 Basic event to give the hucow trait
-narrative_event = {
-  	id = DWCMHucow.10
-	desc = "DWCMHucow10"
-	picture = becoming_hucow
-	title = dwcm_becoming_hucow
 
-	is_triggered_only = yes # triggered via decision
-	only_women = yes
-	min_age = 16
+#.010 Milking event
+character_event = {
+	id = DWCMHucow.010
+  	desc = "DWCMHucow010_desc"
+  	picture = hucow_milking
+  	title = "dwcm_hucow_milking_title"
+
+  	is_triggered_only = yes # triggered via decision dwcm_hucow_milking
+
+  	option = {
+		name = "DWCMHucow010A" # I will have to do it again!
+		if = {
+			limit = {
+				trait = engorged_breasts
+			}
+			remove_trait = engorged_breasts	
+		}
+		hidden_tooltip = { narrative_event = { id = DWCMHucow.020 days = 180  random = 30 } } #TODO reset breast_fullness variable (to implement)
+	  	#TODO add a chance to remove stressed or depressed trait
+  	}
+}
+
+
+#.020 Get engorged breasts some time after having been milked
+character_event = {
+	id = DWCMHucow.020
+  	desc = "DWCMHucow020_desc"
+  	picture = hucow_engorged_breasts
+  	title = "dwcm_hucow_engorged_breasts_title"
+
+  	is_triggered_only = yes #TODO Trigger based on the breast_fullness value (to implement)
+
+  	option = {
+		name = "DWCMHucow020A" # Maybe I should milk myself soon
+		add_trait = engorged_breasts
+  	}
+}
+
+
+# .100 Start research on Lacteria Mirifica
+narrative_event = {
+	id = DWCMHucow.100
+	desc = "DWCMHucow100_desc"
+	picture = lacteria_research
+	title = "dwcm_lacteria_research_title"
+	
+	ai = no	
+	only_playable = yes # only playable characters get this
+	min_age =  16
+	capable_only = yes
+	prisoner = no
+ 	trigger = {
+		NOT = { has_character_flag = dwcm_lacteria_search_paused_01 }
+		NOT = { has_character_flag = dwcm_lacteria_research_started }
+		NOT = { has_character_flag = dwcm_lacteria_research_aborted }
+		NOT = { has_character_flag = dwcm_lacteria_research_completed }
+		has_valid_alchemist = yes # Calls a scripted_trigger from DW
+		OR = { # Need to have some interest in plant studies or research in general
+			has_focus = focus_scholarship
+			trait = gardener
+			trait = mystic
+			trait = scholar
+			trait = erudite
+			trait = physician
+			trait = dz_herbalist # Only matters if DroZzhat's Mod is present
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}	
+	
+	option = {
+		name = "DWCMHucow100A" # I shall discover more about this mysterious mushroom
+		set_character_flag = dwcm_lacteria_research_started
+		hidden_tooltip = { narrative_event = { id = DWCMHucow.110 days = 90  random = 30 } }
+	}
+	option = {
+		name = "DWCMHucow100B" # Continue later [PAUSE EVENT CHAIN]
+		set_character_flag = dwcm_lacteria_search_paused_01
+	}
+	option = {
+		name = "DWCMHucow100C"  # No, I have no time to waste with this [STOP EVENT CHAIN]
+		set_character_flag = dwcm_lacteria_research_aborted
+		#TODO add tooltip to inform player that it will stop the event chain
+	}
+}
+
+
+# .110 progress on Lacteria Mirifica research
+narrative_event = {
+	id = DWCMHucow.110
+	desc = "DWCMHucow110_desc"
+	picture = lacteria_research_01
+	title = "dwcm_lacteria_research_title"
+	
+	hide_from = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		dwcm_get_lacteria_test_subject = yes
+	}
+
+	option = { # Test Lacteria on self
+		name = "DWCMHucow110A" 
+		trigger = {
+			is_female = yes
+		}
+		hidden_tooltip = { narrative_event = { id = DWCMHucow.120 } }
+	}
+	option = { # Try to find a willing test subject in your court
+		name = "DWCMHucow110B" 
+		trigger = {
+			event_target:dwcm_lacteria_test_subject = { character = yes } # A check to see if there was a character successfully slotted into the position
+		}
+		hidden_tooltip = { narrative_event = { id = DWCMHucow.130 } }
+	}
+	option = { # Continue later [PAUSE EVENT CHAIN]
+		name = "DWCMHucow110C" 
+		set_character_flag = dwcm_lacteria_search_paused_02
+	}
+}
+
+
+#.120 Test Lacteria Mirifica on self
+narrative_event = {
+	id = DWCMHucow.120
+  	desc = "DWCMHucow120_desc"
+  	picture = lacteria_research_02
+  	title = "dwcm_lacteria_research_title"
+
+  	is_triggered_only = yes
+
+  	option = {
+	  	name = "DWCMHucow120A" # Well, that was intense
+	  	hidden_tooltip = { narrative_event = { id = DWCMHucow.140 days = 90  random = 30 } }
+  	}
+}
+
+
+#.130 Test Lacteria Mirifica on a test subject
+narrative_event = { 
+  	id = DWCMHucow.130
+	desc = "DWCMHucow130_desc"
+	picture = lacteria_research_03
+	title = "dwcm_lacteria_research_title"
+
+	is_triggered_only = yes
 
 	option = {
-		name = "DWCMHucow10A"
-		add_trait = hucow
+		name = "DWCMHucow130A" # Takes note on how the subject reacts
+		hidden_tooltip = { narrative_event = { id = DWCMHucow.140 days = 90  random = 30 } }
 	}
+}
+
+
+#.140 Analyse data + Idea for creating a more potent version
+narrative_event = {
+  	id = DWCMHucow.140
+	desc = "DWCMHucow140_desc"
+	picture = lacteria_research_04
+	title = "dwcm_lacteria_research_title"
+	
+	hide_from = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "DWCMHucow140A" # Try to create an extract
+		hidden_tooltip = { narrative_event = { id = DWCMHucow.150 days = 7 } }
+	}
+	option = {
+		name = "DWCMHucow140B" # Later [PAUSE EVENT CHAIN]
+		set_character_flag = dwcm_lacteria_search_paused_03
+	}
+	option = { # Not interested [STOP EVENT CHAIN]
+		name = "DWCMHucow140C"
+		clr_character_flag = dwcm_lacteria_research_started
+		set_character_flag = dwcm_lacteria_research_aborted
+		#TODO add tooltip to inform player that it will stop the event chain
+	}
+}
+
+
+#.150 Create lactacid
+narrative_event = {
+  	id = DWCMHucow.150
+	desc = {
+		trigger = {
+			NOT = { has_character_flag = dwcm_lactacid_tested_by_decision }
+		}
+		text = "DWCMHucow150_desc1"
+	}
+	desc = {
+		trigger = {
+			has_character_flag = dwcm_lactacid_tested_by_decision
+		}
+		text = "DWCMHucow150_desc2"
+	}
+	picture = lacteria_research_05
+	title = "dwcm_lacteria_research_title"
+	
+	hide_from = yes
+	is_triggered_only = yes
+
+	immediate = {
+		dwcm_get_lacteria_test_subject = yes
+	}
+
+	after = {
+		clr_character_flag = dwcm_lactacid_tested_by_decision
+	}
+
+	option = {
+		name = "DWCMHucow150A" # Drink it
+		trigger = {
+			is_female = yes
+		}
+		
+		hidden_tooltip = { narrative_event = { id = DWCMHucow.160 } }
+	}
+	option = { # Have someone else drink it
+		name = "DWCMHucow150B"
+		trigger = {
+			event_target:dwcm_lacteria_test_subject = { # A check to see if there was a valid character successfully slotted into the position
+				character = yes
+				is_alive = yes
+				prisoner = no
+				is_incapable = no 
+			} 
+		}
+		hidden_tooltip = { narrative_event = { id = DWCMHucow.180 } }
+	}
+	option = {
+		name = "DWCMHucow150C" # use it later [PAUSE EVENT CHAIN]
+		set_character_flag = dwcm_lactacid_stored
+	}
+}
+
+
+#.160 Drink lactacid
+narrative_event = { 
+	id = DWCMHucow.160
+  	desc = "DWCMHucow160_desc"
+ 	picture = lacteria_research_06
+	title = "dwcm_lacteria_research_title"
+	
+	hide_from = yes
+	is_triggered_only = yes
+
+	option = { 
+	  	name = "DWCMHucow160A"
+		hidden_tooltip = { narrative_event = { id = DWCMHucow.170 days = 14 } }
+		if = { 
+			limit = {
+				dwf_dicktits_active = yes
+			}
+			tits_grow = yes
+		}
+  	}
+}
+
+
+#.170 Become a hucow
+narrative_event = {
+	id = DWCMHucow.170
+	desc = {
+		trigger = {
+			is_pregnant = no
+		}
+		text = "DWCMHucow170_desc1"
+	}
+	desc = {
+		trigger = {
+			is_pregnant = yes
+		}
+		text = "DWCMHucow170_desc2"
+	}  
+ 	picture = lacteria_research_07
+	title = "dwcm_lacteria_research_title"
+	
+	hide_from = yes
+	is_triggered_only = yes
+
+	option = { 
+	  	name = "DWCMHucow170A"
+	  	add_trait = hucow
+	  	clr_character_flag = dwcm_lacteria_research_started
+		set_character_flag = dwcm_lacteria_research_completed
+		hidden_tooltip = { narrative_event = { id = DWCMHucow.020 days = 180  random = 30 } }
+  	}
+}
+
+
+#.180 Test subject drinks lactacid
+narrative_event = {
+	id = DWCMHucow.180
+  	desc = "DWCMHucow180_desc"
+ 	picture = lacteria_research_08
+	title = "dwcm_lacteria_research_title"
+	
+	is_triggered_only = yes
+
+	option = { 
+	  	name = "DWCMHucow180A"
+		hidden_tooltip = { narrative_event = { id = DWCMHucow.190 days = 14 } }
+		if = { 
+			limit = {
+				dwf_dicktits_active = yes
+			}
+			event_target:dwcm_lacteria_test_subject = {
+				tits_grow = yes
+			}
+		}  
+  	}
+}
+
+
+#.190 Test subject becomes a hucow
+narrative_event = {
+	id = DWCMHucow.190
+  	desc = "DWCMHucow190_desc"
+ 	picture = lacteria_research_09
+	title = "dwcm_lacteria_research_title"
+
+	is_triggered_only = yes
+
+	option = { 
+	  	name = "DWCMHucow190A"
+	  	event_target:dwcm_lacteria_test_subject = {
+			add_trait = hucow
+		}
+	  	clr_character_flag = dwcm_lacteria_research_started
+		set_character_flag = dwcm_lacteria_research_completed
+  	}
 }

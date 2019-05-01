@@ -2,8 +2,24 @@ hucow = {
 	potential = {
 		is_female = yes
 		age = 16
-		}
+	}
+	random = no
 	health = 0.5
-	fertility = 0.15
+	fertility = 0.10
+	learning = -2
+}
+
+engorged_breasts = {
+	potential = {
+		is_female = yes
+		age = 16
+		trait = hucow
+	}
+	random = no
+	sex_appeal_opinion = 10
+	fertility = 0.10
+	monthly_character_prestige = -0.1
+	combat_rating = -5
+	martial = -2
 	learning = -2
 }

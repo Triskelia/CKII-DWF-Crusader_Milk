@@ -1,0 +1,41 @@
+dwcm_get_lacteria_test_subject = {
+		if = { # We check if our last test subject is still available
+			limit = {
+				event_target:dwcm_lacteria_test_subject = { 
+					character = yes
+					is_alive = yes
+					prisoner = no
+					is_incapable = no
+				} 
+			}
+		}
+		else = { # Otherwise, we check to see if we've another subject we can use
+			limit = {
+				location = {
+					any_province_character = {
+						is_female = yes
+						age = 16
+						age < 40
+						prisoner = no
+						is_incapable = no
+						ai = yes #we don't want the player being pulled into these events against their will
+					}
+				}
+			}
+			#If there is, we then grab one for the event
+			location = {
+				random_province_character = {
+					limit = {
+						is_female = yes
+						age = 16
+						age < 40
+						prisoner = no
+						is_incapable = no
+						ai = yes
+					}
+					save_event_target_as = dwcm_lacteria_test_subject
+				}
+			}
+		}
+}
+

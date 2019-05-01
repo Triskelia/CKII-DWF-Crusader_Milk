@@ -7,3 +7,12 @@ spriteTypes = {
 		effectFile = "gfx/FX/buttonstate.lua"
 	}
 }
+spriteTypes = {
+	spriteType = {
+		name = "GFX_trait_engorged_breasts"
+		texturefile = "gfx/traits/engorged_breasts.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+}

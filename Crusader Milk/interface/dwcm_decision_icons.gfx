@@ -1,6 +1,18 @@
 spriteTypes = {
 	spriteType = {
-		name = "GFX_dwcm_become_hucow"
-		texturefile = "gfx/interface/dwcm_become_hucow.dds"
+		name = "GFX_dwcm_hucow_milking"
+		texturefile = "gfx/interface/dwcm_hucow_milking.dds"
+	}
+}
+spriteTypes = {
+	spriteType = {
+		name = "GFX_dwcm_resume_lacteria_research"
+		texturefile = "gfx/interface/dwcm_resume_lacteria_research.dds"
+	}
+}
+spriteTypes = {
+	spriteType = {
+		name = "GFX_dwcm_test_lactacid"
+		texturefile = "gfx/interface/dwcm_test_lactacid.dds"
 	}
 }

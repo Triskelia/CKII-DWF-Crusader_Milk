@@ -1,33 +1,59 @@
 # Crusader Milk
 
+![alt text](https://github.com/Triskelia/CKII-DWF-Crusader_Milk/blob/develop/Crusader_Milk_logo_big.png "Logo Crusader Milk")
+
 ## A Dark World Fantasy submod
 
 The intent of this mod is to bring hucows and milking into Crusader Kings II.
-It will requires the Dark World Fantasy mod in order to work, as it will be dependent on its breasts traits (and maybe other stuff too in the future).
-
-### Requirements
-
-- Crusader Kings II 3.0.1+
-- [Not Yet] [Dark World Fantasy 1.4.2+](https://www.loverslab.com/files/file/7030-ck2-dark-world-fantasy/) (And its dependencies)
 
 ### Features
 
-So far, not a lot to show as I'm still building the foundations of the mod.
+So far, not a lot to show as I'm still building the foundations of the mod. Any feedback would be greatly appreciated, especially regarding localisation and game balance.
 
-- Decision to become a hucow (just adds the hucow trait for now)
+- Event chain to research on "Lacteria Mirifica", a mysterious mushroom, and turning yourself or another random woman into a hucow
+  - You will need an alchemy building from Dark World in your capital, as well as the knowledge focus or a scientific/esoteric trait (like Erudite, Mystic...)
+  - For now, the best way to experience this mod, is to be female and to do the experiments on yourself
+- Basic breast fullness system (engorged breasts trait gained after some time)
+- Decision to milk yourself if you have engorged breasts
+
+This mod is fully localised in both English and French.
+
+### Requirements
+
+- Crusader Kings II 3.1.0+
+  - (Recommended) Way of Life DLC
+- [Dark World Fantasy](https://www.loverslab.com/files/file/7030-ck2-dark-world-fantasy/)
+  - (Recommended) Dark World Fantasy Module - Dicks & Tits
+
+### Compatibility
+
+Should be compatible with anything as long as it doesn't conflict with the requirements above
 
 ### Planned Features
 
-Short Term:
+#### Short Term
 
-- Improved event chain to become a hucow (as well as turning others into one)
-- Milking and Breast fullness system
-- Drugs and herbs to alter someone breasts or milk production (as well as arousal or other atribute)
+- Improve research and transformation event chain (more steps before becoming a hucow)
+- Expand milking and breast fullness system (More stages and more flavor events)
+- Allow AI hucows to milk themselve
+- Ability to transform more people of your chosing into hucow, and milk them
 
-Long Term:
+#### Long Term Ideas
 
+- Ability to alter someone breast or milk production (as well as arousal or other atribute)
+- Allow AI to create hucows
+- "Hucow level"
 - "Barn" management
 - Milk Economy
-- Milk Addiction
+- Lactacid Addiction
 - Slavery integration
 - Breeding
+- New ambitions related to milk production or number of hucows owned
+
+### Credits
+
+- **dewguru** - For the original "Dark World" & "Dark World Reborn" mods
+- **lockeslylcrit** - For ["Dark World Fantasy"](https://www.loverslab.com/files/file/7030-ck2-dark-world-fantasy/), the maintained and reworked version of "Dark World"
+- **Korbah** - For sharing their vanilla-like [trait icons templates](https://forum.paradoxplaza.com/forum/index.php?threads/resource-icon-templates.670439/) to the community
+- **Herring** - For the ["Trait Icon Replacements"](https://www.loverslab.com/files/file/5194-ck2-herrings-stuff-for-ck2/) mod (used for one of my trait icon)
+- **Ed86** - For the Skyrim mod ["Milk Mod Economy"](https://www.loverslab.com/files/file/1382-milk-mod-economy/) which gave me the general inspiration for the mod
