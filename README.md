@@ -6,6 +6,8 @@
 
 The intent of this mod is to bring hucows and milking into Crusader Kings II.
 
+[Crusader Milk on LoversLab](https://www.loverslab.com/files/file/8926-ck2-crusader-milk-a-dark-world-fantasy-submod/)
+
 ### Features
 
 So far, not a lot to show as I'm still building the foundations of the mod. Any feedback would be greatly appreciated, especially regarding localisation and game balance.
@@ -57,3 +59,7 @@ Should be compatible with anything as long as it doesn't conflict with the requi
 - **Korbah** - For sharing their vanilla-like [trait icons templates](https://forum.paradoxplaza.com/forum/index.php?threads/resource-icon-templates.670439/) to the community
 - **Herring** - For the ["Trait Icon Replacements"](https://www.loverslab.com/files/file/5194-ck2-herrings-stuff-for-ck2/) mod (used for one of my trait icon)
 - **Ed86** - For the Skyrim mod ["Milk Mod Economy"](https://www.loverslab.com/files/file/1382-milk-mod-economy/) which gave me the general inspiration for the mod
+
+[![alt text](https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png "http://creativecommons.org/licenses/by-nc-nd/4.0/")](http://creativecommons.org/licenses/by-nc-nd/4.0/)\
+This work is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://www.loverslab.com/files/file/8926-ck2-crusader-milk-a-dark-world-fantasy-submod/)\
+Modifications for translations purpose are allowed, as long as I'm notified of it.
