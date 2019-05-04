@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Lowered "Engorged breasts" event frequency (now fires 1,5 to 2 years after being milked, instead of half a year)
+- Lowered "Engorged breasts" event frequency (now occurs 1,5 to 2,5 years after being milked, instead of half a year)
 
 ### Fixed
 
