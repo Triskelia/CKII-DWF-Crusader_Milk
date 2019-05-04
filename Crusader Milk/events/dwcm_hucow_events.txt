@@ -22,7 +22,7 @@ character_event = {
 			}
 			remove_trait = engorged_breasts	
 		}
-		hidden_tooltip = { narrative_event = { id = DWCMHucow.020 days = 180  random = 30 } } #TODO reset breast_fullness variable (to implement)
+		hidden_tooltip = { character_event = { id = DWCMHucow.020 days = 540  random = 360 } } #TODO reset breast_fullness variable (to implement)
 	  	#TODO add a chance to remove stressed or depressed trait
   	}
 }
@@ -69,6 +69,7 @@ narrative_event = {
 			trait = scholar
 			trait = erudite
 			trait = physician
+			# Audax Validator "." Ignore_1006
 			trait = dz_herbalist # Only matters if DroZzhat's Mod is present
 		}
 	}
@@ -259,8 +260,10 @@ narrative_event = {
 		hidden_tooltip = { narrative_event = { id = DWCMHucow.170 days = 14 } }
 		if = { 
 			limit = {
+				# Audax Validator "." Ignore_1007
 				dwf_dicktits_active = yes
 			}
+			# Audax Validator "." Ignore_1007
 			tits_grow = yes
 		}
   	}
@@ -293,7 +296,7 @@ narrative_event = {
 	  	add_trait = hucow
 	  	clr_character_flag = dwcm_lacteria_research_started
 		set_character_flag = dwcm_lacteria_research_completed
-		hidden_tooltip = { narrative_event = { id = DWCMHucow.020 days = 180  random = 30 } }
+		hidden_tooltip = { character_event = { id = DWCMHucow.020 days = 540  random = 360 } }
   	}
 }
 
@@ -312,9 +315,11 @@ narrative_event = {
 		hidden_tooltip = { narrative_event = { id = DWCMHucow.190 days = 14 } }
 		if = { 
 			limit = {
+				# Audax Validator "." Ignore_1007
 				dwf_dicktits_active = yes
 			}
 			event_target:dwcm_lacteria_test_subject = {
+				# Audax Validator "." Ignore_1007
 				tits_grow = yes
 			}
 		}  

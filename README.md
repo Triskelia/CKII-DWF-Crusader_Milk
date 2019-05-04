@@ -31,6 +31,11 @@ This mod is fully localised in both English and French.
 
 Should be compatible with anything as long as it doesn't conflict with the requirements above
 
+### Instalation
+
+To instal, copy the "Crusader Milk" folder and the "Crusader Milk.mod" file to your Crusader Kings II "mod" folder
+> Type this in the explorer address bar to access it : *%HomePath%\Documents\Paradox Interactive\Crusader Kings II\mod*
+
 ### Planned Features
 
 #### Short Term
@@ -51,6 +56,7 @@ Should be compatible with anything as long as it doesn't conflict with the requi
 - Slavery integration
 - Breeding
 - New ambitions related to milk production or number of hucows owned
+- Bloodline for famous hucows
 
 ### Credits
 

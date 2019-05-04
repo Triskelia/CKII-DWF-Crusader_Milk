@@ -1,8 +1,14 @@
+##################
+# General events #
+##################
+
+namespace = DWCMCore
+
 # .1 Sets a global flag of DW_Crusader_Milk_Present for those who build mods that want to check for the presence of this mod
 character_event = {
 	id = DWCMCore.1
-	is_triggered_only = yes # triggered via on_action
-	hide_window = yes # nothing to see here
+	is_triggered_only = yes # triggered via on_startup
+	hide_window = yes
 	trigger = {
 		NOT = { has_global_flag = DW_Crusader_Milk_Present }
 	}
