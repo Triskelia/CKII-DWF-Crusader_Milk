@@ -22,7 +22,7 @@ character_event = {
 			}
 			remove_trait = engorged_breasts	
 		}
-		hidden_tooltip = { character_event = { id = DWCMHucow.020 days = 180  random = 30 } } #TODO reset breast_fullness variable (to implement)
+		hidden_tooltip = { character_event = { id = DWCMHucow.020 days = 540  random = 360 } } #TODO reset breast_fullness variable (to implement)
 	  	#TODO add a chance to remove stressed or depressed trait
   	}
 }
@@ -296,7 +296,7 @@ narrative_event = {
 	  	add_trait = hucow
 	  	clr_character_flag = dwcm_lacteria_research_started
 		set_character_flag = dwcm_lacteria_research_completed
-		hidden_tooltip = { character_event = { id = DWCMHucow.020 days = 180  random = 30 } }
+		hidden_tooltip = { character_event = { id = DWCMHucow.020 days = 540  random = 360 } }
   	}
 }
 
