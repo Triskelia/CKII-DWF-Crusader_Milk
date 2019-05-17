@@ -4,3 +4,11 @@ on_startup = {
 		DWCMCore.1 # Sets the global value of DW_Crusader_Milk_Present for mods that want to verify Crusader Milk is present
 	}
 }
+
+#character
+on_yearly_pulse = {
+	events = {
+		DWCMHucow.020 # Chance to get the engorged breasts trait
+		DWCMHucow.030 # Yearly breast_fullness increase
+	}
+}

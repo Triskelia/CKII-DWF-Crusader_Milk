@@ -15,7 +15,7 @@ decisions = {
 
 		allow = {
 			is_incapable = no
-			trait = engorged_breasts
+			check_variable >= { which = dwcm_breast_fullness value = 1 }
 		}
 
 		effect = {

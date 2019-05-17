@@ -39,3 +39,54 @@ dwcm_get_lacteria_test_subject = {
 		}
 }
 
+dwcm_increase_breast_fullness = {
+	if = {
+		limit = { NOT = { check_variable = { which = dwcm_breast_fullness which = dwcm_total_milk_capacity } } }
+		dwcm_set_total_milk_production_rate = yes
+		change_variable = { which = dwcm_breast_fullness which = dwcm_total_milk_production_rate }
+		if = {
+			limit = { check_variable = { which = dwcm_breast_fullness which = dwcm_total_milk_capacity } }
+			set_variable = { which = dwcm_breast_fullness which = dwcm_total_milk_capacity }
+		}
+	}
+}
+
+dwcm_set_base_milk_capacity = {
+	trigger_switch = {
+		on_trigger = trait
+		gigantic_tits = { set_variable = { which = dwcm_base_milk_capacity value = 7 } }
+		enormous_tits = { set_variable = { which = dwcm_base_milk_capacity value = 6 } }
+		huge_tits = { set_variable = { which = dwcm_base_milk_capacity value = 5 } }
+		big_tits = { set_variable = { which = dwcm_base_milk_capacity value = 4 } }
+		regular_tits = { set_variable = { which = dwcm_base_milk_capacity value = 3 } }
+		small_tits = { set_variable = { which = dwcm_base_milk_capacity value = 2 } }
+		tiny_tits = { set_variable = { which = dwcm_base_milk_capacity value = 1 } }
+	}
+}
+
+dwcm_set_total_milk_capacity = {
+	set_variable = { which = dwcm_total_milk_capacity which = dwcm_base_milk_capacity }
+	#TODO Add potential milk capacity bonuses
+}
+
+dwcm_set_base_milk_production_rate = {
+	trigger_switch = {
+		on_trigger = trait
+		gigantic_tits = { set_variable = { which = dwcm_base_milk_production_rate value = 1.0 } }
+		enormous_tits = { set_variable = { which = dwcm_base_milk_production_rate value = 0.93 } }
+		huge_tits = { set_variable = { which = dwcm_base_milk_production_rate value = 0.82 } }
+		big_tits = { set_variable = { which = dwcm_base_milk_production_rate value = 0.67 } }
+		regular_tits = { set_variable = { which = dwcm_base_milk_production_rate value = 0.51 } }
+		small_tits = { set_variable = { which = dwcm_base_milk_production_rate value = 0.36 } }
+		tiny_tits = { set_variable = { which = dwcm_base_milk_production_rate value = 0.24 } }
+	}
+}
+
+dwcm_set_base_milk_production_multiplier = {
+	set_variable = { which = dwcm_milk_production_multiplier value = 1 }
+}
+
+dwcm_set_total_milk_production_rate = {
+	set_variable = { which = dwcm_total_milk_production_rate which = dwcm_base_milk_production_rate }
+	multiply_variable = { which = dwcm_total_milk_production_rate which = dwcm_milk_production_multiplier }
+}
