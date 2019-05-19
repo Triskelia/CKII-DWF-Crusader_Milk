@@ -15,6 +15,7 @@ decisions = {
 
 		allow = {
 			is_incapable = no
+			NOT = { has_character_modifier = recently_milked }
 			check_variable >= { which = dwcm_breast_fullness value = 1 }
 		}
 

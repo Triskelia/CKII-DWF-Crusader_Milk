@@ -7,6 +7,9 @@ dwcm_resume_lacteria_research_desc;I should resume the research on this mysterio
 dwcm_test_lactacid;Test lactacid;Tester le lactacide;;;;;;;;;;;;x
 dwcm_test_lactacid_desc;Maybe it is time to test the lactacid you created;Il est peut-être temps de tester le lactacide que vous avez créé;;;;;;;;;;;;x
 
+#Modifiers
+recently_milked;Recently milked;Traite récente;;;;;;;;;;;;x
+
 #Events
 dwcm_hucow_milking_title;Milking time!;Il est temps de se traire!;;;;;;;;;;;;x
 DWCMHucow010_desc;Your breasts are starting to be full of milk, it's time to milk them. You grab a jar and start to massage your breasts, then pinch your nipples while pressing on your breasts. You cannot help but let out a soft moan of pleasure as they slowly empty their milk, to the point of filling most of the jar.\n You stand up, satisfied and feeling way lighter.;Vos seins commencent à être un peu trop remplis de lait, il est plus que temps de les traire. Vous attrapez un bocal et commencez à masser vos seins, pour ensuite pincer vos mamelons tout en pressant sur vos seins. Vous ne pouvez vous empêcher de laisser échapper un doux gémissement de plaisir alors qu’ils se vident peu à peu de leur lait. Vous vous relevez, vous sentant bien plus légère.;;;;;;;;;;;;x

@@ -1,0 +1,4 @@
+recently_milked = {
+	learning = 1
+	icon = 85
+}
