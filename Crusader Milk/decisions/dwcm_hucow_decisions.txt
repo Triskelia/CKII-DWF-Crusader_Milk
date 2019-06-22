@@ -4,8 +4,8 @@
 
 
 decisions = {
-	# Self milking
-	dwcm_hucow_milking = {
+	# Check hucow stats
+	dwcm_check_hucow_stats = {
 		potential = {
 			ai = no # Only the player should ever see this
 			trait = hucow
@@ -15,18 +15,53 @@ decisions = {
 		}
 
 		allow = {
-			is_incapable = no
-			NOT = { has_character_modifier = recently_milked }
-			check_variable >= { which = dwcm_breast_fullness value = 1 }
+			always = yes
 		}
 
 		effect = {
-			character_event = { id = DWCMHucow.010 }
+			character_event = { id = DWCMCore.2 }
 		}
 
 		ai_will_do = {
 			factor = 0 # Zero chance the ai uses this
-			#TODO chaste or celibate (+ other traits?) will reduce chances that an ai character picks the decision
+		}
+	}
+
+
+	# Self milking
+	dwcm_hucow_milking = {
+		ai_check_interval = 6 # Determines how seldom the AI checks whether they can and should do the decision, in months. By default 1 (every month).
+
+		potential = {
+			trait = hucow
+			is_female = yes
+			age = 16
+			has_character_flag = hucow_variables_initialized
+		}
+
+		allow = {
+			is_incapable = no
+			NOT = { has_character_modifier = recently_milked }
+			check_variable >= { which = dwcm_breast_fullness value = 0.5 }
+		}
+
+		effect = {
+			character_event = { id = DWCMMilk.040 }
+		}
+
+		ai_will_do = {
+			factor = 0.25
+			modifier = { # Those who have engorged breasts are far more likely to milk themselve
+				factor = 3
+				trait = engorged_breasts
+			}
+			modifier = { # Those religious or chaste may be reluctant to milk themselve
+				factor = 0.5
+				trait = chaste
+				trait = celibate
+				trait = nun
+				trait = zealous
+			}
 		}
 	}
 
