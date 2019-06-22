@@ -17,19 +17,8 @@ character_event = {
   	option = {
 		name = "DWCMHucow010A" # I will have to do it again!
 		dcwm_milk_breasts = yes
-		# if = {
-		# 	limit = {
-		# 		trait = engorged_breasts
-		# 	}
-		# 	remove_trait = engorged_breasts	
-		# }
-		# set_variable = { which = dwcm_breast_fullness value = 0 }
-		# add_character_modifier = {
-		# 	modifier = recently_milked
-		# 	duration = 180
-		# }
 		
-	  	# #TODO add a chance to remove stressed or depressed trait
+	  	#TODO add a chance to remove stressed or depressed trait
   	}
 }
 
