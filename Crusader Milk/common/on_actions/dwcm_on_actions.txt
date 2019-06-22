@@ -10,5 +10,7 @@ on_yearly_pulse = {
 	events = {
 		DWCMHucow.020 # Chance to get the engorged breasts trait
 		DWCMHucow.030 # Yearly breast_fullness increase
+		DWCMHucow.050 # Initialize hucow related variables in case it wasn't already (.ie trait added with console)
+		# TODO Add event to be notified of increased milk capacity and production from new breast size
 	}
 }

@@ -11,6 +11,7 @@ decisions = {
 			trait = hucow
 			is_female = yes
 			age = 16
+			has_character_flag = hucow_variables_initialized
 		}
 
 		allow = {

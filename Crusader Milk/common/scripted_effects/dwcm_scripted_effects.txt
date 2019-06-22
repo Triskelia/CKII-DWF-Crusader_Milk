@@ -39,6 +39,22 @@ dwcm_get_lacteria_test_subject = {
 		}
 }
 
+dcwm_milk_breasts = {
+	if = {
+		limit = {
+			trait = engorged_breasts
+		}
+		remove_trait = engorged_breasts	
+	}
+	set_variable = { which = dwcm_breast_fullness value = 0 }
+	add_character_modifier = {
+		modifier = recently_milked
+		duration = 180
+	}
+	
+	  #TODO add a chance to remove stressed or depressed trait
+}
+
 dwcm_increase_breast_fullness = {
 	if = {
 		limit = { NOT = { check_variable = { which = dwcm_breast_fullness which = dwcm_total_milk_capacity } } }
@@ -84,6 +100,7 @@ dwcm_set_base_milk_production_rate = {
 
 dwcm_set_base_milk_production_multiplier = {
 	set_variable = { which = dwcm_milk_production_multiplier value = 1 }
+	#TODO Add potential multiplier (idea: fuckable nipples from DWF: tentacles)
 }
 
 dwcm_set_total_milk_production_rate = {
