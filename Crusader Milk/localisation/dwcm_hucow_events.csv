@@ -10,6 +10,14 @@ dwcm_test_lactacid_desc;Maybe it is time to test the lactacid you created;Il est
 #Modifiers
 recently_milked;Recently milked;Traite récente;;;;;;;;;;;;x
 
+#Variables
+dwcm_breast_fullness;Breast fullness;Lait contenu;;;;;;;;;;;;x
+dwcm_base_milk_capacity;Base milk capacity;Contenance basique de lait;;;;;;;;;;;;x
+dwcm_total_milk_capacity;Milk capacity;Contenance maximale de lait;;;;;;;;;;;;x
+dwcm_base_milk_production_rate;Base milk production rate;Taux de production basique de lait;;;;;;;;;;;;x
+dwcm_total_milk_production_rate;Milk production rate;Taux de production de lait;;;;;;;;;;;;x
+dwcm_milk_production_multiplier;Milk production multiplier;Multiplicateur de production de lait;;;;;;;;;;;;x
+
 #Events
 dwcm_hucow_milking_title;Milking time!;Il est temps de se traire!;;;;;;;;;;;;x
 DWCMHucow010_desc;Your breasts are starting to be full of milk, it's time to milk them. You grab a jar and start to massage your breasts, then pinch your nipples while pressing on your breasts. You cannot help but let out a soft moan of pleasure as they slowly empty their milk, to the point of filling most of the jar.\n You stand up, satisfied and feeling way lighter.;Vos seins commencent à être un peu trop remplis de lait, il est plus que temps de les traire. Vous attrapez un bocal et commencez à masser vos seins, pour ensuite pincer vos mamelons tout en pressant sur vos seins. Vous ne pouvez vous empêcher de laisser échapper un doux gémissement de plaisir alors qu’ils se vident peu à peu de leur lait. Vous vous relevez, vous sentant bien plus légère.;;;;;;;;;;;;x
