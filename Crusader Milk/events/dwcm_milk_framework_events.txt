@@ -1,0 +1,131 @@
+##########################
+# Milking related events #
+##########################
+
+namespace = DWCMMilk
+
+#.010 Initialize hucow related variables in case it wasn't already (.ie trait added with console) 
+character_event = {
+	id = DWCMMilk.010
+	hide_window = yes
+	only_women = yes
+	min_age = 16
+
+	is_triggered_only = yes
+
+	trigger = {
+		trait = hucow
+		NOT = { has_character_flag = hucow_variables_initialized }
+	}
+
+	immediate = {
+		dwcm_set_base_milk_capacity = yes
+		dwcm_set_base_milk_production_rate = yes
+		dwcm_set_base_milk_production_multiplier = yes
+		dwcm_set_total_milk_production_rate = yes
+		dwcm_set_total_milk_capacity= yes
+		set_variable = { which = dwcm_breast_fullness value = 0 }
+	}
+
+	option = { 
+		set_character_flag = hucow_variables_initialized
+  	}
+}
+
+
+#.020 1st Yearly breast_fullness increase
+character_event = {
+	id = DWCMMilk.020
+	hide_window = yes
+	only_women = yes
+	min_age = 16
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = hucow_variables_initialized
+		NOT = { has_character_modifier = recently_milked }
+		trait = hucow
+	}
+
+	immediate = {
+		dwcm_increase_breast_fullness = yes
+		hidden_tooltip = { character_event = { id = DWCMMilk.030 days = 180 } }
+	}
+
+	option = {
+	}
+}
+
+
+#.030 2nd Yearly breast_fullness increase
+character_event = {
+	id = DWCMMilk.030
+	hide_window = yes
+	only_women = yes
+	min_age = 16
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = hucow_variables_initialized
+		NOT = { has_character_modifier = recently_milked }
+		trait = hucow
+	}
+
+	immediate = {
+		dwcm_increase_breast_fullness = yes
+	}
+
+	option = {
+	}
+}
+
+
+#.040 Milking event
+character_event = {
+	id = DWCMMilk.040
+  	desc = "DWCMMilk040_desc"
+  	picture = hucow_milking
+  	title = "dwcm_hucow_milking_title"
+
+  	is_triggered_only = yes # triggered via decision dwcm_hucow_milking
+
+  	option = {
+		name = "DWCMMilk040A" # I will have to do it again!
+		dcwm_milk_breasts = yes
+		
+	  	#TODO add a chance to remove stressed or depressed trait
+  	}
+}
+
+
+#.050 Get engorged breasts
+character_event = {
+	id = DWCMMilk.050
+  	desc = "DWCMMilk050_desc"
+  	picture = hucow_engorged_breasts
+	title = "dwcm_hucow_engorged_breasts_title"
+	only_women = yes
+	min_age = 16
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = hucow_variables_initialized
+		NOR = { 
+			trait = engorged_breasts
+			has_character_modifier = recently_milked
+		}
+		trait = hucow
+		check_variable = { which = dwcm_breast_fullness which = dwcm_total_milk_capacity }
+	}
+
+  	option = {
+		name = "DWCMMilk050A" # Maybe I should milk myself soon
+		add_trait = engorged_breasts
+  	}
+}
+
+
+
