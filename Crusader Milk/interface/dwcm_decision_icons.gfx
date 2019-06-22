@@ -16,3 +16,9 @@ spriteTypes = {
 		texturefile = "gfx/interface/dwcm_test_lactacid.dds"
 	}
 }
+spriteTypes = {
+	spriteType = {
+		name = "GFX_dwcm_check_hucow_stats"
+		texturefile = "gfx/interface/dwcm_check_hucow_stats.dds"
+	}
+}
