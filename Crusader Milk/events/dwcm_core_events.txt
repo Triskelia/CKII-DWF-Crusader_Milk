@@ -7,7 +7,7 @@ namespace = DWCMCore
 # .1 Sets a global flag of DW_Crusader_Milk_Present for those who build mods that want to check for the presence of this mod
 character_event = {
 	id = DWCMCore.1
-	is_triggered_only = yes # triggered via on_startup
+	is_triggered_only = yes # triggered by on_startup
 	hide_window = yes
 	trigger = {
 		NOT = { has_global_flag = DW_Crusader_Milk_Present }
@@ -15,4 +15,18 @@ character_event = {
 	immediate = {
 		set_global_flag = DW_Crusader_Milk_Present
 	}
+}
+
+#.2 Check hucow stats
+character_event = {
+	id = DWCMCore.2
+  	desc = "DWCMCore1_desc"
+  	picture = check_hucow_stats
+	title = "dwcm_check_hucow_stats_title"
+
+	is_triggered_only = yes #Triggered by decision (dwcm_check_hucow_stats)
+
+  	option = {
+		name = "OK"
+  	}
 }
