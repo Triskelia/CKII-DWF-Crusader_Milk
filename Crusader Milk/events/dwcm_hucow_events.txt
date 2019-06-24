@@ -255,11 +255,7 @@ narrative_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		dwcm_set_base_milk_capacity = yes
-		dwcm_set_base_milk_production_rate = yes
-		dwcm_set_base_milk_production_multiplier = yes
-		dwcm_set_total_milk_production_rate = yes
-		dwcm_set_total_milk_capacity= yes
+		dwcm_update_milk_variables = yes
 		set_variable = { which = dwcm_breast_fullness value = 0 }
 	}
 
@@ -310,11 +306,7 @@ narrative_event = {
 
 	immediate = {
 		event_target:dwcm_lacteria_test_subject = { 
-			dwcm_set_base_milk_capacity = yes
-			dwcm_set_base_milk_production_rate = yes
-			dwcm_set_base_milk_production_multiplier = yes
-			dwcm_set_total_milk_production_rate = yes
-			dwcm_set_total_milk_capacity= yes
+			dwcm_update_milk_variables = yes
 			set_variable = { which = dwcm_breast_fullness value = 0 }
 		}
 	}

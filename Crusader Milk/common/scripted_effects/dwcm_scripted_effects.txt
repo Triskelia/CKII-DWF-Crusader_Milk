@@ -1,42 +1,53 @@
 dwcm_get_lacteria_test_subject = {
-		if = { # We check if our last test subject is still available
-			limit = {
-				event_target:dwcm_lacteria_test_subject = { 
-					character = yes
-					is_alive = yes
+	if = { # We check if our last test subject is still available
+		limit = {
+			event_target:dwcm_lacteria_test_subject = { 
+				character = yes
+				is_alive = yes
+				prisoner = no
+				is_incapable = no
+			} 
+		}
+	}
+	else_if = { # Otherwise, we check to see if we've another subject we can use
+		limit = {
+			location = {
+				any_province_character = {
+					is_female = yes
+					is_adult = yes
+					age < 40
 					prisoner = no
 					is_incapable = no
-				} 
-			}
-		}
-		else_if = { # Otherwise, we check to see if we've another subject we can use
-			limit = {
-				location = {
-					any_province_character = {
-						is_female = yes
-						is_adult = yes
-						age < 40
-						prisoner = no
-						is_incapable = no
-						ai = yes #we don't want the player being pulled into these events against their will
-					}
-				}
-			}
-			#If there is, we then grab one for the event
-			location = {
-				random_province_character = {
-					limit = {
-						is_female = yes
-						is_adult = yes
-						age < 40
-						prisoner = no
-						is_incapable = no
-						ai = yes
-					}
-					save_event_target_as = dwcm_lacteria_test_subject
+					ai = yes #we don't want the player being pulled into these events against their will
 				}
 			}
 		}
+		#If there is, we then grab one for the event
+		location = {
+			random_province_character = {
+				limit = {
+					is_female = yes
+					is_adult = yes
+					age < 40
+					prisoner = no
+					is_incapable = no
+					ai = yes
+				}
+				save_event_target_as = dwcm_lacteria_test_subject
+			}
+		}
+	}
+}
+
+#
+# Breast and milk variables calculations
+#
+dwcm_update_milk_variables = {
+	dwcm_set_base_milk_capacity = yes
+	dwcm_set_base_milk_production_rate = yes
+	dwcm_set_base_milk_production_multiplier = yes
+	dwcm_set_total_milk_production_rate = yes
+	dwcm_set_total_milk_capacity= yes
 }
 
 dcwm_milk_breasts = {
@@ -55,7 +66,7 @@ dcwm_milk_breasts = {
 	  #TODO add a chance to remove stressed or depressed trait
 }
 
-dwcm_increase_breast_fullness = {
+dwcm_increase_breast_fullness = { # Increase breast fullness by one tick (dwcm_total_milk_production_rate)
 	if = {
 		limit = { NOT = { check_variable = { which = dwcm_breast_fullness which = dwcm_total_milk_capacity } } }
 		dwcm_set_total_milk_production_rate = yes
@@ -67,7 +78,7 @@ dwcm_increase_breast_fullness = {
 	}
 }
 
-dwcm_set_base_milk_capacity = {
+dwcm_set_base_milk_capacity = { # Raw Milk Capacity (quantity of milk a hucow can store in her breasts. Without other modifiers)
 	trigger_switch = {
 		on_trigger = trait
 		gigantic_tits = { set_variable = { which = dwcm_base_milk_capacity value = 3.5 } }
@@ -80,12 +91,12 @@ dwcm_set_base_milk_capacity = {
 	}
 }
 
-dwcm_set_total_milk_capacity = {
+dwcm_set_total_milk_capacity = { # Actual Milk Capacity (including potential modifiers)
 	set_variable = { which = dwcm_total_milk_capacity which = dwcm_base_milk_capacity }
 	#TODO Add potential milk capacity bonuses
 }
 
-dwcm_set_base_milk_production_rate = {
+dwcm_set_base_milk_production_rate = { # Raw Milk Production Rate (Quantity of milk produced each tick (about 6 months)).
 	trigger_switch = {
 		on_trigger = trait
 		gigantic_tits = { set_variable = { which = dwcm_base_milk_production_rate value = 0.5 } }
@@ -98,12 +109,12 @@ dwcm_set_base_milk_production_rate = {
 	}
 }
 
-dwcm_set_base_milk_production_multiplier = {
+dwcm_set_base_milk_production_multiplier = { # Milk Production Multiplier (Is used to alter production rate)
 	set_variable = { which = dwcm_milk_production_multiplier value = 1 }
-	#TODO Add potential multiplier (idea: fuckable nipples from DWF: tentacles)
+	#TODO Add potential multiplier (idea: pregnancy, fuckable nipples from DWF: tentacles, etc...)
 }
 
-dwcm_set_total_milk_production_rate = {
+dwcm_set_total_milk_production_rate = { # Actual Production Rate (after multiplier being applied)
 	set_variable = { which = dwcm_total_milk_production_rate which = dwcm_base_milk_production_rate }
 	multiply_variable = { which = dwcm_total_milk_production_rate which = dwcm_milk_production_multiplier }
 }

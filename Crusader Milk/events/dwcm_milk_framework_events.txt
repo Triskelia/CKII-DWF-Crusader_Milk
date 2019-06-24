@@ -4,7 +4,7 @@
 
 namespace = DWCMMilk
 
-#.010 Initialize hucow related variables in case it wasn't already (.ie trait added with console) 
+#.010 Initialize or update hucow related variables
 character_event = {
 	id = DWCMMilk.010
 	hide_window = yes
@@ -15,21 +15,18 @@ character_event = {
 
 	trigger = {
 		trait = hucow
-		NOT = { has_character_flag = hucow_variables_initialized }
 	}
 
 	immediate = {
-		dwcm_set_base_milk_capacity = yes
-		dwcm_set_base_milk_production_rate = yes
-		dwcm_set_base_milk_production_multiplier = yes
-		dwcm_set_total_milk_production_rate = yes
-		dwcm_set_total_milk_capacity= yes
-		set_variable = { which = dwcm_breast_fullness value = 0 }
+		dwcm_update_milk_variables = yes
+		if = {
+			limit = { 
+				NOT = { has_character_flag = hucow_variables_initialized }
+			}
+			set_character_flag = hucow_variables_initialized
+			set_variable = { which = dwcm_breast_fullness value = 0 }
+		}	
 	}
-
-	option = { 
-		set_character_flag = hucow_variables_initialized
-  	}
 }
 
 
