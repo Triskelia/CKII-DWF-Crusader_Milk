@@ -12,16 +12,16 @@ dwcm_test_lactacid_desc;Maybe it is time to test the lactacid you created;Il est
 
 #Modifiers
 recently_milked;Recently milked;Traite récente;;;;;;;;;;;;x
-dwcm_milk_capacity_counter;Milk: [Root.dwcm_current_milk_quantity.GetValue]/[Root.dwcm_total_milk_capacity.GetValue]L;Lait : [Root.dwcm_current_milk_quantity.GetValue]/[Root.dwcm_total_milk_capacity.GetValue]L;;;;;;;;;;;;x
+dwcm_milk_capacity_counter;Milk: [Root.dwcm_milk_quantity_CURRENT.GetValue]/[Root.dwcm_milk_capacity_TOTAL.GetValue]L;Lait : [Root.dwcm_milk_quantity_CURRENT.GetValue]/[Root.dwcm_milk_capacity_TOTAL.GetValue]L;;;;;;;;;;;;x
 
 #Variables
-dwcm_current_milk_quantity;Milk;Lait;;;;;;;;;;;;x
-dwcm_base_milk_capacity;Base milk capacity;Contenance basique de lait;;;;;;;;;;;;x
-dwcm_total_milk_capacity;Milk capacity;Contenance maximale de lait;;;;;;;;;;;;x
-dwcm_base_milk_production_rate;Base milk production rate;Taux de production basique de lait;;;;;;;;;;;;x
-dwcm_total_milk_production_rate;Milk production rate;Taux de production de lait;;;;;;;;;;;;x
-dwcm_milk_production_multiplier;Milk production multiplier;Multiplicateur de production de lait;;;;;;;;;;;;x
+dwcm_milk_quantity_CURRENT;Milk;Lait;;;;;;;;;;;;x
+dwcm_milk_capacity_raw;Base milk capacity;Contenance basique de lait;;;;;;;;;;;;x
+dwcm_milk_capacity_TOTAL;Milk capacity;Contenance maximale de lait;;;;;;;;;;;;x
+dwcm_milk_production_rate_raw;Base milk production rate;Taux de production basique de lait;;;;;;;;;;;;x
+dwcm_milk_production_rate_TOTAL;Milk production rate;Taux de production de lait;;;;;;;;;;;;x
+dwcm_milk_production_MULTIPLIER;Milk production multiplier;Multiplicateur de production de lait;;;;;;;;;;;;x
 
 #Check Stats
 dwcm_check_hucow_stats_title;Hucow Stats;Statistiques Hucow;;;;;;;;;;;;x
-DWCMCore1_desc;\nBreast Fulness: [Root.dwcm_current_milk_quantity.GetValue]/[Root.dwcm_total_milk_capacity.GetValue]L\nProduction Rate: [Root.dwcm_total_milk_production_rate.GetValue]L/tick;\nLait : [Root.dwcm_current_milk_quantity.GetValue]/[Root.dwcm_total_milk_capacity.GetValue]L\nTaux de Production : [Root.dwcm_total_milk_production_rate.GetValue]L/tick;;;;;;;;;;;;x
+DWCMCore1_desc;\nBreast Fulness: [Root.dwcm_milk_quantity_CURRENT.GetValue]/[Root.dwcm_milk_capacity_TOTAL.GetValue]L\nProduction Rate: [Root.dwcm_milk_production_rate_TOTAL.GetValue]L/tick;\nLait : [Root.dwcm_milk_quantity_CURRENT.GetValue]/[Root.dwcm_milk_capacity_TOTAL.GetValue]L\nTaux de Production : [Root.dwcm_milk_production_rate_TOTAL.GetValue]L/tick;;;;;;;;;;;;x

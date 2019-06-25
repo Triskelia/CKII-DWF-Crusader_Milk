@@ -18,14 +18,15 @@ character_event = {
 	}
 
 	immediate = {
-		dwcm_update_milk_variables = yes
-		if = {
+		if = { # We initialize the hucow caracteristics if they aren't already (ie. if trait was added with console command)
 			limit = { 
-				NOT = { has_character_flag = hucow_variables_initialized }
+				NOT = { has_character_flag = dwcm_hucow_variables_initialized }
 			}
-			set_character_flag = hucow_variables_initialized
-			set_variable = { which = dwcm_current_milk_quantity value = 0 }
-		}	
+			dwcm_become_hucow = yes
+		} 
+		else = { # If the hucow has her caracteristics correctly initialized, we just update them
+			dwcm_update_milk_variables = yes
+		}
 	}
 }
 
@@ -40,14 +41,14 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		has_character_flag = hucow_variables_initialized
+		has_character_flag = dwcm_hucow_variables_initialized
 		NOT = { has_character_modifier = recently_milked }
 		trait = hucow
 	}
 
 	immediate = {
 		dwcm_increase_current_milk_quantity = yes
-		hidden_tooltip = { character_event = { id = DWCMMilk.030 days = 180 } }
+		character_event = { id = DWCMMilk.030 days = 180 }
 	}
 }
 
@@ -62,7 +63,7 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		has_character_flag = hucow_variables_initialized
+		has_character_flag = dwcm_hucow_variables_initialized
 		NOT = { has_character_modifier = recently_milked }
 		trait = hucow
 	}
@@ -84,7 +85,7 @@ character_event = {
 
   	option = {
 		name = "DWCMMilk040A" # I will have to do it again!
-		dcwm_milk_breasts = yes
+		dcwm_milk_all_effect = yes
 		
 	  	#TODO add a chance to remove stressed or depressed trait
   	}
@@ -103,13 +104,13 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		has_character_flag = hucow_variables_initialized
+		has_character_flag = dwcm_hucow_variables_initialized
 		NOR = { 
 			trait = engorged_breasts
 			has_character_modifier = recently_milked
 		}
 		trait = hucow
-		check_variable = { which = dwcm_current_milk_quantity which = dwcm_total_milk_capacity }
+		check_variable = { which = dwcm_milk_quantity_CURRENT which = dwcm_milk_capacity_TOTAL }
 	}
 
   	option = {

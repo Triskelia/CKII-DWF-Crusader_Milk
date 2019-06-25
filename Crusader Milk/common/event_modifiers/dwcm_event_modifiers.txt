@@ -5,4 +5,7 @@ recently_milked = {
 
 dwcm_milk_capacity_counter = {
 	icon = 83
+	is_visible = { 
+		character = FROM
+	}
 }

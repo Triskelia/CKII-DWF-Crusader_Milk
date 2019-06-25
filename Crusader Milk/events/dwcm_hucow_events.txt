@@ -197,6 +197,8 @@ narrative_event = {
 				is_alive = yes
 				prisoner = no
 				is_incapable = no 
+				NOT = { trait = hucow }
+				has_character_flag = dw_junk_checked
 			} 
 		}
 		hidden_tooltip = { narrative_event = { id = DWCMHucow.180 } }
@@ -298,18 +300,10 @@ narrative_event = {
 
 	is_triggered_only = yes
 
-	immediate = {
-		event_target:dwcm_lacteria_test_subject = { 
-			dwcm_update_milk_variables = yes
-			set_variable = { which = dwcm_current_milk_quantity value = 0 }
-		}
-	}
-
 	option = { 
 	  	name = "DWCMHucow190A"
 	  	event_target:dwcm_lacteria_test_subject = {
-			add_trait = hucow
-			set_character_flag = hucow_variables_initialized
+			dwcm_become_hucow = yes
 		}
 	  	clr_character_flag = dwcm_lacteria_research_started
 		set_character_flag = dwcm_lacteria_research_completed
