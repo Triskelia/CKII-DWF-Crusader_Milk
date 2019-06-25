@@ -39,6 +39,15 @@ dwcm_get_lacteria_test_subject = {
 	}
 }
 
+dwcm_become_hucow = {
+	add_trait = hucow
+	hidden_tooltip = {
+		dwcm_update_milk_variables = yes
+		set_variable = { which = dwcm_current_milk_quantity value = 0 }
+		set_character_flag = hucow_variables_initialized
+	}
+}
+
 #
 # Breast and milk variables calculations
 #
@@ -48,6 +57,10 @@ dwcm_update_milk_variables = {
 	dwcm_set_base_milk_production_multiplier = yes
 	dwcm_set_total_milk_production_rate = yes
 	dwcm_set_total_milk_capacity= yes
+	add_character_modifier = {
+		name = dwcm_milk_capacity_counter
+		duration = -1
+	}
 }
 
 dcwm_milk_breasts = {
@@ -57,23 +70,21 @@ dcwm_milk_breasts = {
 		}
 		remove_trait = engorged_breasts	
 	}
-	set_variable = { which = dwcm_breast_fullness value = 0 }
+	set_variable = { which = dwcm_current_milk_quantity value = 0 }
 	add_character_modifier = {
 		modifier = recently_milked
 		duration = 180
 	}
-	
-	  #TODO add a chance to remove stressed or depressed trait
 }
 
-dwcm_increase_breast_fullness = { # Increase breast fullness by one tick (dwcm_total_milk_production_rate)
+dwcm_increase_current_milk_quantity = { # Increase current_milk_quantity by one tick (dwcm_total_milk_production_rate)
 	if = {
-		limit = { NOT = { check_variable = { which = dwcm_breast_fullness which = dwcm_total_milk_capacity } } }
+		limit = { NOT = { check_variable = { which = dwcm_current_milk_quantity which = dwcm_total_milk_capacity } } }
 		dwcm_set_total_milk_production_rate = yes
-		change_variable = { which = dwcm_breast_fullness which = dwcm_total_milk_production_rate }
+		change_variable = { which = dwcm_current_milk_quantity which = dwcm_total_milk_production_rate }
 		if = {
-			limit = { check_variable = { which = dwcm_breast_fullness which = dwcm_total_milk_capacity } }
-			set_variable = { which = dwcm_breast_fullness which = dwcm_total_milk_capacity }
+			limit = { check_variable = { which = dwcm_current_milk_quantity which = dwcm_total_milk_capacity } }
+			set_variable = { which = dwcm_current_milk_quantity which = dwcm_total_milk_capacity }
 		}
 	}
 }
@@ -111,7 +122,7 @@ dwcm_set_base_milk_production_rate = { # Raw Milk Production Rate (Quantity of m
 
 dwcm_set_base_milk_production_multiplier = { # Milk Production Multiplier (Is used to alter production rate)
 	set_variable = { which = dwcm_milk_production_multiplier value = 1 }
-	#TODO Add potential multiplier (idea: pregnancy, fuckable nipples from DWF: tentacles, etc...)
+	#TODO Add potential multipliers (idea: pregnancy, fuckable nipples from DWF: tentacles, etc...)
 }
 
 dwcm_set_total_milk_production_rate = { # Actual Production Rate (after multiplier being applied)

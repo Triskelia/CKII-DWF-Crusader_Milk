@@ -24,13 +24,13 @@ character_event = {
 				NOT = { has_character_flag = hucow_variables_initialized }
 			}
 			set_character_flag = hucow_variables_initialized
-			set_variable = { which = dwcm_breast_fullness value = 0 }
+			set_variable = { which = dwcm_current_milk_quantity value = 0 }
 		}	
 	}
 }
 
 
-#.020 1st Yearly breast_fullness increase
+#.020 1st Yearly current_milk_quantity increase
 character_event = {
 	id = DWCMMilk.020
 	hide_window = yes
@@ -46,16 +46,13 @@ character_event = {
 	}
 
 	immediate = {
-		dwcm_increase_breast_fullness = yes
+		dwcm_increase_current_milk_quantity = yes
 		hidden_tooltip = { character_event = { id = DWCMMilk.030 days = 180 } }
-	}
-
-	option = {
 	}
 }
 
 
-#.030 2nd Yearly breast_fullness increase
+#.030 2nd Yearly current_milk_quantity increase
 character_event = {
 	id = DWCMMilk.030
 	hide_window = yes
@@ -71,15 +68,12 @@ character_event = {
 	}
 
 	immediate = {
-		dwcm_increase_breast_fullness = yes
-	}
-
-	option = {
+		dwcm_increase_current_milk_quantity = yes
 	}
 }
 
 
-#.040 Milking event
+#.040 Self Milking event
 character_event = {
 	id = DWCMMilk.040
   	desc = "DWCMMilk040_desc"
@@ -115,7 +109,7 @@ character_event = {
 			has_character_modifier = recently_milked
 		}
 		trait = hucow
-		check_variable = { which = dwcm_breast_fullness which = dwcm_total_milk_capacity }
+		check_variable = { which = dwcm_current_milk_quantity which = dwcm_total_milk_capacity }
 	}
 
   	option = {
