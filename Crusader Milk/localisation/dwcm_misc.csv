@@ -21,7 +21,9 @@ dwcm_milk_capacity_TOTAL;Milk capacity;Contenance maximale de lait;;;;;;;;;;;;x
 dwcm_milk_production_rate_raw;Base milk production rate;Taux de production basique de lait;;;;;;;;;;;;x
 dwcm_milk_production_rate_TOTAL;Milk production rate;Taux de production de lait;;;;;;;;;;;;x
 dwcm_milk_production_MULTIPLIER;Milk production multiplier;Multiplicateur de production de lait;;;;;;;;;;;;x
+dwcm_tracker_milk_produced;Milk produced;Lait produit;;;;;;;;;;;;x
+dwcm_tracker_time_milked;Time milked;Nombre de traites;;;;;;;;;;;;x
 
 #Check Stats
 dwcm_check_hucow_stats_title;Hucow Stats;Statistiques Hucow;;;;;;;;;;;;x
-DWCMCore1_desc;\nBreast Fulness: [Root.dwcm_milk_quantity_CURRENT.GetValue]/[Root.dwcm_milk_capacity_TOTAL.GetValue]L\nProduction Rate: [Root.dwcm_milk_production_rate_TOTAL.GetValue]L/tick;\nLait : [Root.dwcm_milk_quantity_CURRENT.GetValue]/[Root.dwcm_milk_capacity_TOTAL.GetValue]L\nTaux de Production : [Root.dwcm_milk_production_rate_TOTAL.GetValue]L/tick;;;;;;;;;;;;x
+DWCMCore1_desc;\n[Root.dwcm_milk_quantity_CURRENT.GetName]: [Root.dwcm_milk_quantity_CURRENT.GetValue]/[Root.dwcm_milk_capacity_TOTAL.GetValue]L\nProduction Rate: [Root.dwcm_milk_production_rate_TOTAL.GetValue]L/tick\n[Root.dwcm_tracker_milk_produced.GetName]: [Root.dwcm_tracker_milk_produced.GetValue]\n[Root.dwcm_tracker_time_milked.GetName]: [Root.dwcm_tracker_time_milked.GetValue];\n[Root.dwcm_milk_quantity_CURRENT.GetName] : [Root.dwcm_milk_quantity_CURRENT.GetValue]/[Root.dwcm_milk_capacity_TOTAL.GetValue]L\nTaux de Production : [Root.dwcm_milk_production_rate_TOTAL.GetValue]L/tick\n[Root.dwcm_tracker_milk_produced.GetName]: [Root.dwcm_tracker_milk_produced.GetValue]\n[Root.dwcm_tracker_time_milked.GetName]: [Root.dwcm_tracker_time_milked.GetValue];;;;;;;;;;;;x
