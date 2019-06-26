@@ -7,7 +7,7 @@ dwcm_get_lacteria_test_subject = {
 				prisoner = no
 				is_incapable = no
 				NOT = { trait = hucow }
-				has_character_flag = dw_junk_checked
+				has_character_flag = dw_boobs_checked
 			} 
 		}
 	}
@@ -22,7 +22,7 @@ dwcm_get_lacteria_test_subject = {
 					is_incapable = no
 					ai = yes #we don't want the player being pulled into these events against their will
 					NOT = { trait = hucow }
-					has_character_flag = dw_junk_checked
+					has_character_flag = dw_boobs_checked
 				}
 			}
 		}
@@ -37,7 +37,7 @@ dwcm_get_lacteria_test_subject = {
 					is_incapable = no
 					ai = yes
 					NOT = { trait = hucow }
-					has_character_flag = dw_junk_checked
+					has_character_flag = dw_boobs_checked
 				}
 				save_event_target_as = dwcm_lacteria_test_subject
 			}
@@ -80,12 +80,12 @@ dwcm_increase_current_milk_quantity = { # [Modder_friendly] Increase milk quanti
 }
 
 dwcm_update_milk_variables = { # [Modder_friendly] Update most milk related variables
+	dwcm_update_divided_milk_quantities = yes
 	dwcm_update_milk_capacity_raw = yes
+	dwcm_update_milk_capacity_TOTAL= yes
 	dwcm_update_milk_production_rate_raw = yes
 	dwcm_update_milk_production_MULTIPLIER = yes
 	dwcm_update_milk_production_rate_TOTAL = yes
-	dwcm_update_milk_capacity_TOTAL= yes
-	dwcm_update_divided_milk_quantities = yes
 }
 
 dwcm_update_divided_milk_quantities = {
