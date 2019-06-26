@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.0] - 2019-06-27
 
+This update doesn't add a lot of content gameplay wise. It mostly implement the lactation framework. Next update will hopefully be loaded with new events.
+Nevertheless, feedbacks are still welcome regarding this new framework
+
 - WILL break old saves
 - Delete your old "Crusader Milk" folder before installing if you have a previous version
 - NOT compatible with Dark World Tentacles v1.4.1 or below (It will need to be updated to work with the new lactation framework)
