@@ -1,0 +1,29 @@
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+
+#Decisions
+dwcm_check_hucow_stats;Check Hucow Stats;Vérifier Statistiques Hucow;;;;;;;;;;;;x
+dwcm_check_hucow_stats_desc;Take a peek at your character's hucow stats;Jettez un œil aux statistiques de Hucow de votre personnage;;;;;;;;;;;;x
+dwcm_hucow_milking;Milk yourself;Se traire;;;;;;;;;;;;x
+dwcm_hucow_milking_desc;Maybe it is time to empty these heavy breasts of yours;Il est peut-être temps d'alléger vos lourds seins;;;;;;;;;;;;x
+dwcm_resume_lacteria_research;Resume research on Lacteria Mirifica;Reprendre les recherches sur Lacteria Mirifica;;;;;;;;;;;;x
+dwcm_resume_lacteria_research_desc;I should resume the research on this mysterious mushroom;Je devrais reprendre les recherche sur ce mystérieux champignon;;;;;;;;;;;;x
+dwcm_test_lactacid;Test lactacid;Tester le lactacide;;;;;;;;;;;;x
+dwcm_test_lactacid_desc;Maybe it is time to test the lactacid you created;Il est peut-être temps de tester le lactacide que vous avez créé;;;;;;;;;;;;x
+
+#Modifiers
+recently_milked;Recently milked;Traite récente;;;;;;;;;;;;x
+dwcm_milk_capacity_counter;Milk: [Root.dwcm_milk_quantity_CURRENT.GetValue]/[Root.dwcm_milk_capacity_TOTAL.GetValue]L;Lait : [Root.dwcm_milk_quantity_CURRENT.GetValue]/[Root.dwcm_milk_capacity_TOTAL.GetValue]L;;;;;;;;;;;;x
+
+#Variables
+dwcm_milk_quantity_CURRENT;Milk;Lait;;;;;;;;;;;;x
+dwcm_milk_capacity_raw;Base milk capacity;Contenance basique de lait;;;;;;;;;;;;x
+dwcm_milk_capacity_TOTAL;Milk capacity;Contenance maximale de lait;;;;;;;;;;;;x
+dwcm_milk_production_rate_raw;Base milk production rate;Taux de production basique de lait;;;;;;;;;;;;x
+dwcm_milk_production_rate_TOTAL;Milk production rate;Taux de production de lait;;;;;;;;;;;;x
+dwcm_milk_production_MULTIPLIER;Milk production multiplier;Multiplicateur de production de lait;;;;;;;;;;;;x
+dwcm_tracker_milk_produced;Milk produced;Lait produit;;;;;;;;;;;;x
+dwcm_tracker_time_milked;Time milked;Nombre de traites;;;;;;;;;;;;x
+
+#Check Stats
+dwcm_check_hucow_stats_title;Hucow Stats;Statistiques Hucow;;;;;;;;;;;;x
+DWCMCore1_desc;\n[Root.dwcm_milk_quantity_CURRENT.GetName]: [Root.dwcm_milk_quantity_CURRENT.GetValue]/[Root.dwcm_milk_capacity_TOTAL.GetValue]L\nProduction Rate: [Root.dwcm_milk_production_rate_TOTAL.GetValue]L/tick\n[Root.dwcm_tracker_milk_produced.GetName]: [Root.dwcm_tracker_milk_produced.GetValue]\n[Root.dwcm_tracker_time_milked.GetName]: [Root.dwcm_tracker_time_milked.GetValue];\n[Root.dwcm_milk_quantity_CURRENT.GetName] : [Root.dwcm_milk_quantity_CURRENT.GetValue]/[Root.dwcm_milk_capacity_TOTAL.GetValue]L\nTaux de Production : [Root.dwcm_milk_production_rate_TOTAL.GetValue]L/tick\n[Root.dwcm_tracker_milk_produced.GetName]: [Root.dwcm_tracker_milk_produced.GetValue]\n[Root.dwcm_tracker_time_milked.GetName]: [Root.dwcm_tracker_time_milked.GetValue];;;;;;;;;;;;x

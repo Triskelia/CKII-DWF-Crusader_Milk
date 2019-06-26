@@ -1,41 +1,185 @@
 dwcm_get_lacteria_test_subject = {
-		if = { # We check if our last test subject is still available
-			limit = {
-				event_target:dwcm_lacteria_test_subject = { 
-					character = yes
-					is_alive = yes
+	if = { # We check if our last test subject is still available
+		limit = {
+			event_target:dwcm_lacteria_test_subject = { 
+				character = yes
+				is_alive = yes
+				prisoner = no
+				is_incapable = no
+				NOT = { trait = hucow }
+				has_character_flag = dw_boobs_checked
+			} 
+		}
+	}
+	else_if = { # Otherwise, we check to see if we've another subject we can use
+		limit = {
+			location = {
+				any_province_character = {
+					is_female = yes
+					is_adult = yes
+					age < 40
 					prisoner = no
 					is_incapable = no
-				} 
-			}
-		}
-		else_if = { # Otherwise, we check to see if we've another subject we can use
-			limit = {
-				location = {
-					any_province_character = {
-						is_female = yes
-						is_adult = yes
-						age < 40
-						prisoner = no
-						is_incapable = no
-						ai = yes #we don't want the player being pulled into these events against their will
-					}
-				}
-			}
-			#If there is, we then grab one for the event
-			location = {
-				random_province_character = {
-					limit = {
-						is_female = yes
-						is_adult = yes
-						age < 40
-						prisoner = no
-						is_incapable = no
-						ai = yes
-					}
-					save_event_target_as = dwcm_lacteria_test_subject
+					ai = yes #we don't want the player being pulled into these events against their will
+					NOT = { trait = hucow }
+					has_character_flag = dw_boobs_checked
 				}
 			}
 		}
+		#If there is, we then grab one for the event
+		location = {
+			random_province_character = {
+				limit = {
+					is_female = yes
+					is_adult = yes
+					age < 40
+					prisoner = no
+					is_incapable = no
+					ai = yes
+					NOT = { trait = hucow }
+					has_character_flag = dw_boobs_checked
+				}
+				save_event_target_as = dwcm_lacteria_test_subject
+			}
+		}
+	}
 }
 
+dwcm_become_hucow = { # [Modder_friendly] Make the character a hucow and initialize her variables
+	if = {
+		limit = { NOT = { trait = hucow } }
+		add_trait = hucow
+	}
+	hidden_tooltip = {
+		set_variable = { which = dwcm_milk_quantity_CURRENT value = 0 }
+		set_variable = { which = dwcm_tracker_milk_produced value = 0 }
+		set_variable = { which = dwcm_tracker_time_milked value = 0 }
+		dwcm_update_milk_variables = yes
+		add_character_modifier = {
+			name = dwcm_milk_capacity_counter
+			duration = -1
+		}
+		set_character_flag = dwcm_hucow_variables_initialized
+	}
+}
+
+#
+# Hucow caracteristics calculations (Milk capacity, production rate...)
+#
+dwcm_increase_current_milk_quantity = { # [Modder_friendly] Increase milk quantity by one tick (dwcm_milk_production_rate_TOTAL)
+	if = {
+		limit = { NOT = { check_variable = { which = dwcm_milk_quantity_CURRENT which = dwcm_milk_capacity_TOTAL } } }
+		dwcm_update_milk_production_rate_TOTAL = yes
+		change_variable = { which = dwcm_milk_quantity_CURRENT which = dwcm_milk_production_rate_TOTAL }
+		if = {
+			limit = { check_variable = { which = dwcm_milk_quantity_CURRENT which = dwcm_milk_capacity_TOTAL } }
+			set_variable = { which = dwcm_milk_quantity_CURRENT which = dwcm_milk_capacity_TOTAL }
+		}
+	}
+	dwcm_update_divided_milk_quantities = yes
+}
+
+dwcm_update_milk_variables = { # [Modder_friendly] Update most milk related variables
+	dwcm_update_divided_milk_quantities = yes
+	dwcm_update_milk_capacity_raw = yes
+	dwcm_update_milk_capacity_TOTAL= yes
+	dwcm_update_milk_production_rate_raw = yes
+	dwcm_update_milk_production_MULTIPLIER = yes
+	dwcm_update_milk_production_rate_TOTAL = yes
+}
+
+dwcm_update_divided_milk_quantities = {
+	set_variable = { which = dwcm_milk_quantity_half which = dwcm_milk_quantity_CURRENT }
+	divide_variable = { which = dwcm_milk_quantity_half value = 2 }
+	set_variable = { which = dwcm_milk_quantity_third which = dwcm_milk_quantity_CURRENT }
+	divide_variable = { which = dwcm_milk_quantity_third value = 3 }
+	set_variable = { which = dwcm_milk_quantity_quarter which = dwcm_milk_quantity_CURRENT }
+	divide_variable = { which = dwcm_milk_quantity_quarter value = 4 }
+}
+
+dwcm_update_milk_capacity_raw = { # Raw Milk Capacity (quantity of milk a hucow can store in her breasts. Without other modifiers)
+	trigger_switch = {
+		on_trigger = trait
+		gigantic_tits = { set_variable = { which = dwcm_milk_capacity_raw value = 3.5 } }
+		enormous_tits = { set_variable = { which = dwcm_milk_capacity_raw value = 3 } }
+		huge_tits = { set_variable = { which = dwcm_milk_capacity_raw value = 2.5 } }
+		big_tits = { set_variable = { which = dwcm_milk_capacity_raw value = 2 } }
+		regular_tits = { set_variable = { which = dwcm_milk_capacity_raw value = 1.5 } }
+		small_tits = { set_variable = { which = dwcm_milk_capacity_raw value = 1 } }
+		tiny_tits = { set_variable = { which = dwcm_milk_capacity_raw value = 0.5 } }
+	}
+}
+
+dwcm_update_milk_capacity_TOTAL = { # Actual Milk Capacity (including potential modifiers)
+	set_variable = { which = dwcm_milk_capacity_TOTAL which = dwcm_milk_capacity_raw }
+	#TODO Add potential milk capacity bonuses
+}
+
+dwcm_update_milk_production_rate_raw = { # Raw Milk Production Rate (Quantity of milk produced each tick (about 6 months)).
+	trigger_switch = {
+		on_trigger = trait
+		gigantic_tits = { set_variable = { which = dwcm_milk_production_rate_raw value = 0.5 } }
+		enormous_tits = { set_variable = { which = dwcm_milk_production_rate_raw value = 0.47 } }
+		huge_tits = { set_variable = { which = dwcm_milk_production_rate_raw value = 0.41 } }
+		big_tits = { set_variable = { which = dwcm_milk_production_rate_raw value = 0.34 } }
+		regular_tits = { set_variable = { which = dwcm_milk_production_rate_raw value = 0.26 } }
+		small_tits = { set_variable = { which = dwcm_milk_production_rate_raw value = 0.18 } }
+		tiny_tits = { set_variable = { which = dwcm_milk_production_rate_raw value = 0.12 } }
+	}
+}
+
+dwcm_update_milk_production_MULTIPLIER = { # Milk Production Multiplier (Is used to alter production rate)
+	set_variable = { which = dwcm_milk_production_MULTIPLIER value = 1 }
+	#TODO Add potential multipliers (idea: pregnancy, fuckable nipples from DWF: tentacles, etc...)
+}
+
+dwcm_update_milk_production_rate_TOTAL = { # Actual Production Rate (after multiplier being applied)
+	set_variable = { which = dwcm_milk_production_rate_TOTAL which = dwcm_milk_production_rate_raw }
+	multiply_variable = { which = dwcm_milk_production_rate_TOTAL which = dwcm_milk_production_MULTIPLIER }
+}
+
+
+#
+# Milking effects
+#
+dcwm_milking_after_effect = { # Don't call this scripted effect directly, use the other milk effects bellow, or set up the right variables beforehand
+	if = {
+		limit = {
+			trait = engorged_breasts
+		}
+		remove_trait = engorged_breasts	
+	}
+	add_character_modifier = {
+		modifier = recently_milked
+		duration = 180
+	}
+	hidden_tooltip = {
+		change_variable = { which = dwcm_tracker_milk_produced which = local_dwcm_milked_amount }
+		change_variable = { which = dwcm_tracker_time_milked value = 1 }
+		dwcm_update_divided_milk_quantities = yes
+	}
+}
+
+dcwm_milk_all_effect = { # [Modder_friendly] Milk all the milk present in the character's breasts
+	hidden_tooltip = { set_variable = { which = local_dwcm_milked_amount which = dwcm_milk_quantity_CURRENT } }
+	subtract_variable = { which = dwcm_milk_quantity_CURRENT  which = dwcm_milk_quantity_CURRENT }
+	dcwm_milking_after_effect = yes
+}
+
+dcwm_milk_half_effect = { # [Modder_friendly] Milk half the milk present in the character's breasts
+	hidden_tooltip = { set_variable = { which = local_dwcm_milked_amount which = dwcm_milk_quantity_half } }
+	subtract_variable = { which = dwcm_milk_quantity_CURRENT  which = dwcm_milk_quantity_half }
+	dcwm_milking_after_effect = yes
+}
+
+dcwm_milk_third_effect = { # [Modder_friendly] Milk a third of the milk present in the character's breasts
+	hidden_tooltip = { set_variable = { which = local_dwcm_milked_amount which = dwcm_milk_quantity_third } }
+	subtract_variable = { which = dwcm_milk_quantity_CURRENT  which = dwcm_milk_quantity_third }
+	dcwm_milking_after_effect = yes
+}
+
+dcwm_milk_quarter_effect = { # [Modder_friendly] Milk a quarter of the milk present in the character's breasts
+	hidden_tooltip = { set_variable = { which = local_dwcm_milked_amount which = dwcm_milk_quantity_quarter } }
+	subtract_variable = { which = dwcm_milk_quantity_CURRENT  which = dwcm_milk_quantity_quarter }
+	dcwm_milking_after_effect = yes
+}

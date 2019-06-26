@@ -1,6 +1,15 @@
 #character
 on_startup = {
 	events = {
-		DWCMCore.1 # Sets the global value of DW_Crusader_Milk_Present for mods that want to verify Crusader Milk is present
+		DWCMCore.1 # Sets the global value of DW_Crusader_Milk_Present for mods that want to verify that Crusader Milk is present
+	}
+}
+
+#character
+on_yearly_pulse = {
+	events = {
+		DWCMMilk.010 # Initialize hucow related variables in case it wasn't already (.ie trait added with console)
+		DWCMMilk.020 # Yearly current_milk_quantity increase
+		DWCMMilk.050 # Chance to get the engorged breasts trait
 	}
 }

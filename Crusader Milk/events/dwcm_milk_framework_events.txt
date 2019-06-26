@@ -1,0 +1,123 @@
+##########################
+# Milking related events #
+##########################
+
+namespace = DWCMMilk
+
+#.010 Initialize or update hucow related variables
+character_event = {
+	id = DWCMMilk.010
+	hide_window = yes
+	only_women = yes
+	min_age = 16
+
+	is_triggered_only = yes
+
+	trigger = {
+		trait = hucow
+	}
+
+	immediate = {
+		if = { # We initialize the hucow caracteristics if they aren't already (ie. if trait was added with console command)
+			limit = { 
+				NOT = { has_character_flag = dwcm_hucow_variables_initialized }
+			}
+			dwcm_become_hucow = yes
+		} 
+		else = { # If the hucow has her caracteristics correctly initialized, we just update them
+			dwcm_update_milk_variables = yes
+		}
+	}
+}
+
+
+#.020 1st Yearly current_milk_quantity increase
+character_event = {
+	id = DWCMMilk.020
+	hide_window = yes
+	only_women = yes
+	min_age = 16
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = dwcm_hucow_variables_initialized
+		NOT = { has_character_modifier = recently_milked }
+		trait = hucow
+	}
+
+	immediate = {
+		dwcm_increase_current_milk_quantity = yes
+		character_event = { id = DWCMMilk.030 days = 180 }
+	}
+}
+
+
+#.030 2nd Yearly current_milk_quantity increase
+character_event = {
+	id = DWCMMilk.030
+	hide_window = yes
+	only_women = yes
+	min_age = 16
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = dwcm_hucow_variables_initialized
+		NOT = { has_character_modifier = recently_milked }
+		trait = hucow
+	}
+
+	immediate = {
+		dwcm_increase_current_milk_quantity = yes
+	}
+}
+
+
+#.040 Self Milking event
+character_event = {
+	id = DWCMMilk.040
+  	desc = "DWCMMilk040_desc"
+  	picture = hucow_milking
+  	title = "dwcm_hucow_milking_title"
+
+  	is_triggered_only = yes # triggered via decision dwcm_hucow_milking
+
+  	option = {
+		name = "DWCMMilk040A" # I will have to do it again!
+		dcwm_milk_all_effect = yes
+		
+	  	#TODO add a chance to remove stressed or depressed trait
+  	}
+}
+
+
+#.050 Get engorged breasts
+character_event = {
+	id = DWCMMilk.050
+  	desc = "DWCMMilk050_desc"
+  	picture = hucow_engorged_breasts
+	title = "dwcm_hucow_engorged_breasts_title"
+	only_women = yes
+	min_age = 16
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_character_flag = dwcm_hucow_variables_initialized
+		NOR = { 
+			trait = engorged_breasts
+			has_character_modifier = recently_milked
+		}
+		trait = hucow
+		check_variable = { which = dwcm_milk_quantity_CURRENT which = dwcm_milk_capacity_TOTAL }
+	}
+
+  	option = {
+		name = "DWCMMilk050A" # Maybe I should milk myself soon
+		add_trait = engorged_breasts
+  	}
+}
+
+
+

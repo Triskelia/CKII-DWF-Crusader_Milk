@@ -5,45 +5,6 @@
 namespace = DWCMHucow
 
 
-#.010 Milking event
-character_event = {
-	id = DWCMHucow.010
-  	desc = "DWCMHucow010_desc"
-  	picture = hucow_milking
-  	title = "dwcm_hucow_milking_title"
-
-  	is_triggered_only = yes # triggered via decision dwcm_hucow_milking
-
-  	option = {
-		name = "DWCMHucow010A" # I will have to do it again!
-		if = {
-			limit = {
-				trait = engorged_breasts
-			}
-			remove_trait = engorged_breasts	
-		}
-		hidden_tooltip = { character_event = { id = DWCMHucow.020 days = 540  random = 360 } } #TODO reset breast_fullness variable (to implement)
-	  	#TODO add a chance to remove stressed or depressed trait
-  	}
-}
-
-
-#.020 Get engorged breasts some time after having been milked
-character_event = {
-	id = DWCMHucow.020
-  	desc = "DWCMHucow020_desc"
-  	picture = hucow_engorged_breasts
-  	title = "dwcm_hucow_engorged_breasts_title"
-
-  	is_triggered_only = yes #TODO Trigger based on the breast_fullness value (to implement)
-
-  	option = {
-		name = "DWCMHucow020A" # Maybe I should milk myself soon
-		add_trait = engorged_breasts
-  	}
-}
-
-
 # .100 Start research on Lacteria Mirifica
 narrative_event = {
 	id = DWCMHucow.100
@@ -56,7 +17,9 @@ narrative_event = {
 	min_age =  16
 	capable_only = yes
 	prisoner = no
+	
  	trigger = {
+		NOT = { trait = hucow }
 		NOT = { has_character_flag = dwcm_lacteria_search_paused_01 }
 		NOT = { has_character_flag = dwcm_lacteria_research_started }
 		NOT = { has_character_flag = dwcm_lacteria_research_aborted }
@@ -234,6 +197,8 @@ narrative_event = {
 				is_alive = yes
 				prisoner = no
 				is_incapable = no 
+				NOT = { trait = hucow }
+				has_character_flag = dw_boobs_checked
 			} 
 		}
 		hidden_tooltip = { narrative_event = { id = DWCMHucow.180 } }
@@ -293,10 +258,9 @@ narrative_event = {
 
 	option = { 
 	  	name = "DWCMHucow170A"
-	  	add_trait = hucow
-	  	clr_character_flag = dwcm_lacteria_research_started
+		dwcm_become_hucow = yes
+		clr_character_flag = dwcm_lacteria_research_started
 		set_character_flag = dwcm_lacteria_research_completed
-		hidden_tooltip = { character_event = { id = DWCMHucow.020 days = 540  random = 360 } }
   	}
 }
 
@@ -339,7 +303,7 @@ narrative_event = {
 	option = { 
 	  	name = "DWCMHucow190A"
 	  	event_target:dwcm_lacteria_test_subject = {
-			add_trait = hucow
+			dwcm_become_hucow = yes
 		}
 	  	clr_character_flag = dwcm_lacteria_research_started
 		set_character_flag = dwcm_lacteria_research_completed

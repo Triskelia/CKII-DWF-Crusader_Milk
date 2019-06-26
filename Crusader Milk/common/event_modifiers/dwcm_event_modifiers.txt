@@ -1,0 +1,11 @@
+recently_milked = {
+	learning = 1
+	icon = 85
+}
+
+dwcm_milk_capacity_counter = {
+	icon = 83
+	is_visible = { 
+		character = FROM
+	}
+}

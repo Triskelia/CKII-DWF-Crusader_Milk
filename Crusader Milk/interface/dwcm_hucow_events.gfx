@@ -1,5 +1,11 @@
 spriteTypes = {
 	spriteType = {
+		name = "check_hucow_stats"
+		texturefile = "gfx/event_pictures/dwcm_check_hucow_stats.dds"
+	}
+}
+spriteTypes = {
+	spriteType = {
 		name = "hucow_engorged_breasts"
 		texturefile = "gfx/event_pictures/dwcm_breast_engorged.dds"
 	}
