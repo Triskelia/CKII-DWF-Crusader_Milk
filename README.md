@@ -15,8 +15,10 @@ So far, not a lot to show as I'm still building the foundations of the mod. Any 
 - Event chain to research on "Lacteria Mirifica", a mysterious mushroom, and turning yourself or another random woman into a hucow
   - You will need an alchemy building from Dark World in your capital, as well as the knowledge focus or a scientific/esoteric trait (like Erudite, Mystic...)
   - For now, the best way to experience this mod, is to be female and to do the experiments on yourself
-- Basic breast fullness system (engorged breasts trait gained after some time)
-- Decision to milk yourself if you have engorged breasts
+- Lactation framework (Hucows produce milk over time, the amount depending on their breast size)
+- Decision to milk yourself
+- Decision to check your hucow stats (Will be loaded with lots of pretty numbers in the future)
+- Get the "engorged breasts" trait upon reaching full milk capacity (Be nice to your hucow, don't forget to milk her)
 
 This mod is fully localised in both English and French.
 
@@ -25,7 +27,8 @@ This mod is fully localised in both English and French.
 - Crusader Kings II 3.1.0+
   - (Recommended) Way of Life DLC
 - [Dark World Fantasy](https://www.loverslab.com/files/file/7030-ck2-dark-world-fantasy/)
-  - (Recommended) Dark World Fantasy Module - Dicks & Tits
+  - Dark World Fantasy Module - Dicks & Tits
+- (Recommended) [Dark World Tentacles](https://www.loverslab.com/files/file/9377-dark-world-tentacles/) (Adds new ways to become hucow, and to be milked)
 
 ### Compatibility
 
@@ -40,13 +43,12 @@ To install, copy the "Crusader Milk" folder and the "Crusader Milk.mod" file to 
 
 #### Short Term
 
-- Improve research and transformation event chain (more steps before becoming a hucow)
-- Expand milking and breast fullness system (More stages and more flavor events)
-- Allow AI hucows to milk themselve
-- Ability to transform more people of your chosing into hucow, and milk them
+- Events making use of the lactation framework
+- Custom rules to alter some aspect of the mod
 
 #### Long Term Ideas
 
+- Ability to transform more people of your chosing into hucow, and milk them
 - Ability to alter someone breast or milk production (as well as arousal or other atribute)
 - Allow AI to create hucows
 - "Hucow level"
