@@ -24,7 +24,7 @@ Nevertheless, feedbacks are still welcome regarding this new framework
 - Added Decision to check your hucow stats
 - Added "Recently milked" event modifier (prevents milking and increase of milk quantity while a hucow has it)
 - Added Milk quantity counter (character modifier)
-- (Modders) Added several scripted effect ("dwcm_become_hucow" and some milking effects like "dcwm_milk_half_effect"). Search for "Modder_friendly" to easily find them all
+- (Modders) Added several scripted effect ("dwcm_become_hucow" and some milking effects like "dwcm_milk_half_effect"). Search for "Modder_friendly" to easily find them all
 
 ### Changed
 
