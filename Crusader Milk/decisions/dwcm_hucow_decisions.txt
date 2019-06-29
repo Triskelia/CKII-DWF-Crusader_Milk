@@ -30,7 +30,7 @@ decisions = {
 
 	# Self milking
 	dwcm_hucow_milking = {
-		ai_check_interval = 1
+		ai_check_interval = 6
 
 		potential = {
 			trait = hucow
