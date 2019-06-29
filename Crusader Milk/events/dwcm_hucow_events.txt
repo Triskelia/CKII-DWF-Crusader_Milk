@@ -75,7 +75,7 @@ narrative_event = {
 	option = { # Test Lacteria on self
 		name = "DWCMHucow110A" 
 		trigger = {
-			is_female = yes
+			dwcm_is_potential_hucow	= yes
 		}
 		hidden_tooltip = { narrative_event = { id = DWCMHucow.120 } }
 	}
@@ -184,7 +184,7 @@ narrative_event = {
 	option = {
 		name = "DWCMHucow150A" # Drink it
 		trigger = {
-			is_female = yes
+			dwcm_is_potential_hucow	= yes
 		}
 		
 		hidden_tooltip = { narrative_event = { id = DWCMHucow.160 } }
@@ -193,12 +193,7 @@ narrative_event = {
 		name = "DWCMHucow150B"
 		trigger = {
 			event_target:dwcm_lacteria_test_subject = { # A check to see if there was a valid character successfully slotted into the position
-				character = yes
-				is_alive = yes
-				prisoner = no
-				is_incapable = no 
-				NOT = { trait = hucow }
-				has_character_flag = dw_boobs_checked
+				dwcm_is_potential_hucow	= yes
 			} 
 		}
 		hidden_tooltip = { narrative_event = { id = DWCMHucow.180 } }

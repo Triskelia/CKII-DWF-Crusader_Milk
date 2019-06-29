@@ -4,29 +4,26 @@
 
 namespace = DWCMMilk
 
-#.010 Initialize or update hucow related variables
+#.010 Monthly current_milk_quantity increase
 character_event = {
 	id = DWCMMilk.010
 	hide_window = yes
 	only_women = yes
 	min_age = 16
 
-	is_triggered_only = yes
+	# is_triggered_only = yes
+	mean_time_to_happen = { months = 1 }
 
 	trigger = {
 		trait = hucow
 	}
 
 	immediate = {
-		if = { # We initialize the hucow caracteristics if they aren't already (ie. if trait was added with console command)
-			limit = { 
-				NOT = { has_character_flag = dwcm_hucow_variables_initialized }
-			}
-			dwcm_become_hucow = yes
-		} 
-		else = { # If the hucow has her caracteristics correctly initialized, we just update them
-			dwcm_update_milk_variables = yes
+		if = {
+			limit = { dwcm_is_non_initialized_hucow = yes }
+			dwcm_become_hucow = yes # We initialize the hucow caracteristics if they aren't already (ie. if trait was added with console command)
 		}
+		dwcm_increase_current_milk_quantity = yes
 	}
 }
 
@@ -63,9 +60,8 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		has_character_flag = dwcm_hucow_variables_initialized
+		dwcm_is_proper_hucow = yes
 		NOT = { has_character_modifier = recently_milked }
-		trait = hucow
 	}
 
 	immediate = {
@@ -104,12 +100,11 @@ character_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		has_character_flag = dwcm_hucow_variables_initialized
+		dwcm_is_proper_hucow = yes
 		NOR = { 
 			trait = engorged_breasts
 			has_character_modifier = recently_milked
 		}
-		trait = hucow
 		check_variable = { which = dwcm_milk_quantity_CURRENT which = dwcm_milk_capacity_TOTAL }
 	}
 
