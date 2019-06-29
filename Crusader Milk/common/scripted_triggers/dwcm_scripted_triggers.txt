@@ -1,0 +1,32 @@
+# Character
+dwcm_is_potential_hucow = {
+	AND = {
+		character = yes
+		is_alive = yes
+		is_female = yes
+		age = 16
+		NOT = { practical_age = 40 }
+		is_incapable = no
+		NOR = { 
+			trait = hucow
+			has_character_flag = dwcm_hucow_immunity
+		}
+		has_character_flag = dw_boobs_checked
+	}
+}
+
+# Character
+dwcm_is_non_initialized_hucow = {
+	AND = {
+		trait = hucow
+		NOT = { has_character_flag = dwcm_hucow_variables_initialized }
+	}
+}
+
+# Character
+dwcm_is_proper_hucow = {
+	AND = {
+		trait = hucow
+		has_character_flag = dwcm_hucow_variables_initialized
+	}
+}
