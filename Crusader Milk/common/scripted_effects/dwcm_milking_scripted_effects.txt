@@ -1,0 +1,68 @@
+#
+# Milking effects
+#
+
+# Character
+dwcm_milking_after_effect = { # Don't call this scripted effect directly, use the other milk effects bellow, or set up the right variables beforehand
+	if = {
+		limit = {
+			trait = engorged_breasts
+		}
+		remove_trait = engorged_breasts	
+	}
+	add_character_modifier = {
+		modifier = recently_milked
+		duration = 180
+	}
+	hidden_tooltip = {
+		change_variable = { which = dwcm_tracker_milk_produced which = local_dwcm_milked_amount }
+		change_variable = { which = dwcm_tracker_time_milked value = 1 }
+		dwcm_update_divided_milk_quantities = yes
+	}
+}
+
+# Character
+dwcm_milk_all_effect = { # [Modder_friendly] Milk all the milk present in the character's breasts
+	hidden_tooltip = { set_variable = { which = local_dwcm_milked_amount which = dwcm_milk_quantity_CURRENT } }
+	subtract_variable = { which = dwcm_milk_quantity_CURRENT  which = dwcm_milk_quantity_CURRENT }
+	dwcm_milking_after_effect = yes
+}
+
+# Character
+dwcm_milk_half_effect = { # [Modder_friendly] Milk half the milk present in the character's breasts
+	hidden_tooltip = { set_variable = { which = local_dwcm_milked_amount which = dwcm_milk_quantity_half } }
+	subtract_variable = { which = dwcm_milk_quantity_CURRENT  which = dwcm_milk_quantity_half }
+	dwcm_milking_after_effect = yes
+}
+
+# Character
+dwcm_milk_third_effect = { # [Modder_friendly] Milk a third of the milk present in the character's breasts
+	hidden_tooltip = { set_variable = { which = local_dwcm_milked_amount which = dwcm_milk_quantity_third } }
+	subtract_variable = { which = dwcm_milk_quantity_CURRENT  which = dwcm_milk_quantity_third }
+	dwcm_milking_after_effect = yes
+}
+
+# Character
+dwcm_milk_quarter_effect = { # [Modder_friendly] Milk a quarter of the milk present in the character's breasts
+	hidden_tooltip = { set_variable = { which = local_dwcm_milked_amount which = dwcm_milk_quantity_quarter } }
+	subtract_variable = { which = dwcm_milk_quantity_CURRENT  which = dwcm_milk_quantity_quarter }
+	dwcm_milking_after_effect = yes
+}
+
+
+# Old milking scripted effects (had a typo). Left here for now as to not break compatibility with other mods until they fix it on their end
+dcwm_milk_all_effect = { # [Modder_friendly] Milk all the milk present in the character's breasts
+	dwcm_milk_all_effect = yes
+}
+
+dcwm_milk_half_effect = { # [Modder_friendly] Milk half the milk present in the character's breasts
+	dwcm_milk_half_effect = yes
+}
+
+dcwm_milk_third_effect = { # [Modder_friendly] Milk a third of the milk present in the character's breasts
+	dwcm_milk_third_effect = yes
+}
+
+dcwm_milk_quarter_effect = { # [Modder_friendly] Milk a quarter of the milk present in the character's breasts
+	dwcm_milk_quarter_effect = yes
+}
