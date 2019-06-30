@@ -38,9 +38,8 @@ dwcm_become_hucow = { # [Modder_friendly] Make the character a hucow and initial
 			set_variable = { which = dwcm_milk_quantity_CURRENT value = 0 }
 			set_variable = { which = dwcm_tracker_milk_produced value = 0 }
 			set_variable = { which = dwcm_tracker_time_milked value = 0 }
-			# set_variable = { which = dwcm_milk_capacity_MODIFIER_hardcoded value = 0 }
-			# set_variable = { which = dwcm_milk_capacity_MODIFIER value = 0 }
-			set_variable = { which = dwcm_milk_production_MULTIPLIER value = 1 }
+			# set_variable = { which = local_dwcm_milk_capacity_MODIFIER_hardcoded value = 0 }
+			# set_variable = { which = dwcm_milk_capacity_MODIFIER_other value = 0 }
 			
 			add_character_modifier = {
 				name = dwcm_milk_capacity_counter
@@ -110,17 +109,30 @@ dwcm_update_milk_capacity_raw = { # Raw Milk Capacity (quantity of milk a hucow 
 }
 
 # Character; Should be hidden
+dwcm_update_milk_capacity_TOTAL = { # Actual Milk Capacity (including potential modifiers)
+	set_variable = { which = dwcm_milk_capacity_TOTAL which = dwcm_milk_capacity_raw }
+	dwcm_update_milk_capacity_MODIFIER_hardcoded = yes
+	set_variable = { which = dwcm_milk_capacity_MODIFIER_TOTAL which = local_dwcm_milk_capacity_MODIFIER_hardcoded } # Modifier added by this mod (probably from traits, buildings or character flags)
+	change_variable = { which = dwcm_milk_capacity_MODIFIER_TOTAL which = dwcm_milk_capacity_MODIFIER_other } # Other modifiers, this variable can be changed directly (Only use change_variable, and if needed, add an event to substract it when the effect wears off. Or vice-versa. It is also advised to use dwcm_update_milk_variables after)
+	change_variable = { which = dwcm_milk_capacity_TOTAL which = dwcm_milk_capacity_MODIFIER_TOTAL }
+	if = { # We make sure that the hucow has at least a milk capacity of 0.25
+		limit = { NOT = { check_variable = { which = dwcm_milk_capacity_TOTAL value = 0.24 } } }
+		set_variable = { which = dwcm_milk_capacity_TOTAL value = 0.25 }
+	}
+}
+
+# Character; Should be hidden
 dwcm_update_milk_capacity_MODIFIER_hardcoded = {
-	set_variable = { which = dwcm_milk_capacity_MODIFIER_hardcoded value = 0 }
+	set_variable = { which = local_dwcm_milk_capacity_MODIFIER_hardcoded value = 0 }
 	# Buffs
 	#TODO Add buffs for pregnancy (vanilla, tentacle, + check DWF)
 	if = {
 		limit = { trait = is_fat }
-		change_variable = { which = dwcm_milk_capacity_MODIFIER_hardcoded value = 2 }
+		change_variable = { which = local_dwcm_milk_capacity_MODIFIER_hardcoded value = 2 }
 	}
 	if = {
 		limit = { trait = giant }
-		change_variable = { which = dwcm_milk_capacity_MODIFIER_hardcoded value = 1 }
+		change_variable = { which = local_dwcm_milk_capacity_MODIFIER_hardcoded value = 1 }
 	}
 	if = {
 		limit = { 
@@ -130,7 +142,7 @@ dwcm_update_milk_capacity_MODIFIER_hardcoded = {
 				trait = strong
 			}
 		}
-		change_variable = { which = dwcm_milk_capacity_MODIFIER_hardcoded value = 0.5 }
+		change_variable = { which = local_dwcm_milk_capacity_MODIFIER_hardcoded value = 0.5 }
 	}
 
 	# Debuffs
@@ -141,27 +153,15 @@ dwcm_update_milk_capacity_MODIFIER_hardcoded = {
 				trait = weak
 		 	}
 		}
-		subtract_variable = { which = dwcm_milk_capacity_MODIFIER_hardcoded value = 0.5 }
+		subtract_variable = { which = local_dwcm_milk_capacity_MODIFIER_hardcoded value = 0.5 }
 	}
 	if = {
 		limit = { trait = dwarf	}
-		subtract_variable = { which = dwcm_milk_capacity_MODIFIER_hardcoded value = 1 }
+		subtract_variable = { which = local_dwcm_milk_capacity_MODIFIER_hardcoded value = 1 }
 	}
 	if = { 
 		limit = { trait = is_malnourished } 
-		subtract_variable = { which = dwcm_milk_capacity_MODIFIER_hardcoded value = 2 }
-	}
-}
-
-# Character; Should be hidden
-dwcm_update_milk_capacity_TOTAL = { # Actual Milk Capacity (including potential modifiers)
-	set_variable = { which = dwcm_milk_capacity_TOTAL which = dwcm_milk_capacity_raw }
-	dwcm_update_milk_capacity_MODIFIER_hardcoded = yes
-	change_variable = { which = dwcm_milk_capacity_TOTAL which = dwcm_milk_capacity_MODIFIER_hardcoded } # Modifier added by this mod (probably from traits, buildings or character flags)
-	change_variable = { which = dwcm_milk_capacity_TOTAL which = dwcm_milk_capacity_MODIFIER } # Other modifiers, this variable can be changed directly (Only use change_variable, and if needed, add an event to substract it when the effect wears off. Or vice-versa. It is also advised to use dwcm_update_milk_variables after)
-	if = { # We make sure that the hucow has at least a milk capacity of 0.25
-		limit = { NOT = { check_variable = { which = dwcm_milk_capacity_TOTAL value = 0.24 } } }
-		set_variable = { which = dwcm_milk_capacity_TOTAL value = 0.25 }
+		subtract_variable = { which = local_dwcm_milk_capacity_MODIFIER_hardcoded value = 2 }
 	}
 }
 
@@ -183,5 +183,29 @@ dwcm_update_milk_production_rate_raw = { # Raw Milk Production Rate (Quantity of
 # Character; Should be hidden
 dwcm_update_milk_production_rate_TOTAL = { # Actual Production Rate (after multiplier being applied)
 	set_variable = { which = dwcm_milk_production_rate_TOTAL which = dwcm_milk_production_rate_raw }
+	dwcm_update_milk_production_MULTIPLIER_hardcoded = yes
+	set_variable = { which = dwcm_milk_production_MULTIPLIER which = local_dwcm_milk_production_MULTIPLIER_hardcoded } # Modifier added by this mod (probably from traits, buildings or character flags)
+	change_variable = { which = dwcm_milk_production_MULTIPLIER which = dwcm_milk_production_MULTIPLIER_other } # Other modifiers, this variable can be changed directly (Only use change_variable, and if needed, add an event to substract it when the effect wears off. Or vice-versa. It is also advised to use dwcm_update_milk_variables after)
 	multiply_variable = { which = dwcm_milk_production_rate_TOTAL which = dwcm_milk_production_MULTIPLIER }
+	if = { # We make sure that the hucow has at least a milk production of 0.01
+		limit = { NOT = { check_variable = { which = dwcm_milk_production_rate_TOTAL value = 0.01 } } }
+		set_variable = { which = dwcm_milk_production_rate_TOTAL value = 0.01 }
+	}
+}
+
+# Character; Should be hidden
+dwcm_update_milk_production_MULTIPLIER_hardcoded = {
+	set_variable = { which = local_dwcm_milk_production_MULTIPLIER_hardcoded value = 1 }
+	# Buffs
+	#TODO Add buffs for pregnancy (vanilla, tentacle, + check DWF)
+	if = {
+		limit = { trait = is_fat }
+		change_variable = { which = local_dwcm_milk_production_MULTIPLIER_hardcoded value = 0.1 }
+	}
+
+	# Debuffs
+	if = { 
+		limit = { trait = is_malnourished } 
+		subtract_variable = { which = local_dwcm_milk_capacity_MODIFIER_hardcoded value = 0.1 }
+	}
 }
