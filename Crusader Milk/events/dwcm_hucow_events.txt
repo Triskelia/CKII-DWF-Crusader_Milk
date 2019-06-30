@@ -53,7 +53,6 @@ narrative_event = {
 	option = {
 		name = "DWCMHucow100C"  # No, I have no time to waste with this [STOP EVENT CHAIN]
 		set_character_flag = dwcm_lacteria_research_aborted
-		#TODO add tooltip to inform player that it will stop the event chain
 	}
 }
 
@@ -147,7 +146,6 @@ narrative_event = {
 		name = "DWCMHucow140C"
 		clr_character_flag = dwcm_lacteria_research_started
 		set_character_flag = dwcm_lacteria_research_aborted
-		#TODO add tooltip to inform player that it will stop the event chain
 	}
 }
 
