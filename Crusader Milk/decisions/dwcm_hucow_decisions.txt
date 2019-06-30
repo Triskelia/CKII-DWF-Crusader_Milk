@@ -42,7 +42,7 @@ decisions = {
 		allow = {
 			is_incapable = no
 			NOT = { has_character_modifier = recently_milked }
-			check_variable >= { which = dwcm_milk_quantity_CURRENT value = 0.5 }
+			check_variable >= { which = dwcm_milk_quantity_CURRENT value = 0.25 }
 		}
 
 		effect = {
