@@ -183,9 +183,7 @@ dwcm_update_milk_production_rate_raw = { # Raw Milk Production Rate (Quantity of
 # Character; Should be hidden
 dwcm_update_milk_production_rate_TOTAL = { # Actual Production Rate (after multiplier being applied)
 	set_variable = { which = dwcm_milk_production_rate_TOTAL which = dwcm_milk_production_rate_raw }
-	dwcm_update_milk_production_MULTIPLIER_hardcoded = yes
-	set_variable = { which = dwcm_milk_production_MULTIPLIER which = local_dwcm_milk_production_MULTIPLIER_hardcoded } # Modifier added by this mod (probably from traits, buildings or character flags)
-	change_variable = { which = dwcm_milk_production_MULTIPLIER which = dwcm_milk_production_MULTIPLIER_other } # Other modifiers, this variable can be changed directly (Only use change_variable, and if needed, add an event to substract it when the effect wears off. Or vice-versa. It is also advised to use dwcm_update_milk_variables after)
+	dwcm_update_milk_production_MULTIPLIER = yes
 	multiply_variable = { which = dwcm_milk_production_rate_TOTAL which = dwcm_milk_production_MULTIPLIER }
 	if = { # We make sure that the hucow has at least a milk production of 0.01
 		limit = { NOT = { check_variable = { which = dwcm_milk_production_rate_TOTAL value = 0.01 } } }
@@ -194,18 +192,21 @@ dwcm_update_milk_production_rate_TOTAL = { # Actual Production Rate (after multi
 }
 
 # Character; Should be hidden
-dwcm_update_milk_production_MULTIPLIER_hardcoded = {
-	set_variable = { which = local_dwcm_milk_production_MULTIPLIER_hardcoded value = 1 }
+dwcm_update_milk_production_MULTIPLIER = {
+	set_variable = { which = dwcm_milk_production_MULTIPLIER value = 1 }
 	# Buffs
 	#TODO Add buffs for pregnancy (vanilla, tentacle, + check DWF)
 	if = {
 		limit = { trait = is_fat }
-		change_variable = { which = local_dwcm_milk_production_MULTIPLIER_hardcoded value = 0.1 }
+		change_variable = { which = dwcm_milk_production_MULTIPLIER value = 0.1 }
 	}
 
 	# Debuffs
 	if = { 
 		limit = { trait = is_malnourished } 
-		subtract_variable = { which = local_dwcm_milk_capacity_MODIFIER_hardcoded value = 0.1 }
+		subtract_variable = { which = dwcm_milk_production_MULTIPLIER value = 0.1 }
 	}
+
+	# Other multipliers
+	change_variable = { which = dwcm_milk_production_MULTIPLIER which = dwcm_milk_production_MULTIPLIER_other }
 }
