@@ -82,3 +82,9 @@ spriteTypes = {
 		texturefile = "gfx/event_pictures/dwcm_lacteria_research_09.dds"
 	}
 }
+spriteTypes = {
+	spriteType = {
+		name = "milk_production_boost_01"
+		texturefile = "gfx/event_pictures/dwcm_milk_production_boost_01.dds"
+	}
+}

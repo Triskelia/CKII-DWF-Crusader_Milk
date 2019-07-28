@@ -9,3 +9,12 @@ dwcm_milk_capacity_counter = {
 		character = FROM
 	}
 }
+
+breastfed_by_hucow = {
+	health = 1
+	icon = 39
+}
+
+breastfeeding = {
+	icon = 39
+}

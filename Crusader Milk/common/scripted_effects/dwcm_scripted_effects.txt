@@ -166,7 +166,7 @@ dwcm_update_milk_capacity_MODIFIER_hardcoded = {
 }
 
 # Character; Should be hidden
-dwcm_update_milk_production_rate_raw = { # Raw Milk Production Rate (Quantity of milk produced each tick (about 6 months)).
+dwcm_update_milk_production_rate_raw = { # Raw Milk Production Rate (Quantity of milk produced each month).
 #TODO Add notification when it changes
 	trigger_switch = {
 		on_trigger = trait
@@ -180,33 +180,54 @@ dwcm_update_milk_production_rate_raw = { # Raw Milk Production Rate (Quantity of
 	}
 }
 
-# Character; Should be hidden
+# Character
 dwcm_update_milk_production_rate_TOTAL = { # Actual Production Rate (after multiplier being applied)
-	set_variable = { which = dwcm_milk_production_rate_TOTAL which = dwcm_milk_production_rate_raw }
-	dwcm_update_milk_production_MULTIPLIER = yes
-	multiply_variable = { which = dwcm_milk_production_rate_TOTAL which = dwcm_milk_production_MULTIPLIER }
-	if = { # We make sure that the hucow has at least a milk production of 0.01
-		limit = { NOT = { check_variable = { which = dwcm_milk_production_rate_TOTAL value = 0.01 } } }
-		set_variable = { which = dwcm_milk_production_rate_TOTAL value = 0.01 }
+	hidden_tooltip = {
+		set_variable = { which = dwcm_milk_production_rate_TOTAL which = dwcm_milk_production_rate_raw }
+		dwcm_update_milk_production_MULTIPLIER = yes
+		multiply_variable = { which = dwcm_milk_production_rate_TOTAL which = dwcm_milk_production_MULTIPLIER }
+		if = { # We make sure that the hucow has at least a milk production of 0.01
+			limit = { NOT = { check_variable = { which = dwcm_milk_production_rate_TOTAL value = 0.01 } } }
+			set_variable = { which = dwcm_milk_production_rate_TOTAL value = 0.01 }
+		}
 	}
 }
 
 # Character; Should be hidden
 dwcm_update_milk_production_MULTIPLIER = {
-	set_variable = { which = dwcm_milk_production_MULTIPLIER value = 1 }
-	# Buffs
-	#TODO Add buffs for pregnancy (vanilla, tentacle, + check DWF)
-	if = {
-		limit = { trait = is_fat }
-		change_variable = { which = dwcm_milk_production_MULTIPLIER value = 0.1 }
-	}
+	hidden_tooltip = {
+		set_variable = { which = dwcm_milk_production_MULTIPLIER value = 1 }
+		# Buffs
+		if = {
+			limit = { trait = is_fat }
+			change_variable = { which = dwcm_milk_production_MULTIPLIER value = 0.1 }
+		}
+		
+		# Milk production boost from breastfeeding (couldn't use on_birth because tentacle born births don't trigger this on_action event)
+		any_child = {
+			if = { 
+				limit = { 
+					NOR = { 
+						has_character_flag = breastfeeded_by_hucow
+						age = 1
+					}
+				}
+				set_character_flag = breastfeeded_by_hucow
+				character_event = { id = DWCMHucow.200 }
+			}
+		}
+		if = {
+			limit = { has_character_modifier = breastfeeding }
+			change_variable = { which = dwcm_milk_production_MULTIPLIER value = 1 }
+		}
 
-	# Debuffs
-	if = { 
-		limit = { trait = is_malnourished } 
-		subtract_variable = { which = dwcm_milk_production_MULTIPLIER value = 0.1 }
-	}
+		# Debuffs
+		if = { 
+			limit = { trait = is_malnourished } 
+			subtract_variable = { which = dwcm_milk_production_MULTIPLIER value = 0.1 }
+		}
 
-	# Other multipliers
-	change_variable = { which = dwcm_milk_production_MULTIPLIER which = dwcm_milk_production_MULTIPLIER_other }
+		# Other multipliers
+		change_variable = { which = dwcm_milk_production_MULTIPLIER which = dwcm_milk_production_MULTIPLIER_other }
+	}
 }

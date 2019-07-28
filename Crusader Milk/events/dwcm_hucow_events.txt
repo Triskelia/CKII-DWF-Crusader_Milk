@@ -1,6 +1,8 @@
 ########################
 # Hucow related events #
 ########################
+# .100 to .190 : Lacteria Mirifica research event chain
+# .200 to 202 : Post-birth milk production boost
 
 namespace = DWCMHucow
 
@@ -301,4 +303,68 @@ narrative_event = {
 	  	clr_character_flag = dwcm_lacteria_research_started
 		set_character_flag = dwcm_lacteria_research_completed
   	}
+}
+
+#.200 Post-birth milk production boost - ping to Mother
+# ROOT = baby
+character_event = {
+	id = DWCMHucow.200
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		mother = {
+			dwcm_is_proper_hucow = yes
+		}
+	}
+
+	immediate = {
+		mother = {
+			character_event = { id = DWCMHucow.201 }
+		}
+	}
+}
+
+#.201 Post-birth milk production boost
+character_event = {
+	id = DWCMHucow.201
+	desc = "DWCMHucow201_desc"
+	picture = milk_production_boost_01
+	title = "dwcm_milk_production_boost"
+
+	is_triggered_only = yes
+
+	after = {
+		dwcm_update_milk_production_MULTIPLIER = yes
+	}
+
+	option = {
+		name = "DWCMHucow201A"
+		# character modifiers are already assigned at this point, but this way, we get the tooltip
+		add_character_modifier = {
+			modifier = breastfeeding
+			duration = 180
+		}
+		FROM = { # = the baby
+			add_character_modifier = {
+				modifier = breastfed_by_hucow
+				duration = 180
+			}
+		}
+	}
+}
+
+#.202 Post-birth milk production boost removal
+character_event = {
+	id = DWCMHucow.202
+	#TODO to hide
+
+	is_triggered_only = yes
+
+	option = {
+		name = "DWCMHucow202A"
+		subtract_variable = { which = dwcm_milk_production_MULTIPLIER_other value = 1 }
+		dwcm_update_milk_production_rate_TOTAL = yes
+	}
 }

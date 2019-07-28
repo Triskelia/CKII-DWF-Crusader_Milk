@@ -12,7 +12,10 @@ dwcm_test_lactacid_desc;Maybe it is time to test the lactacid you created;Il est
 
 #Modifiers
 recently_milked;Recently milked;Traite récente;;;;;;;;;;;;x
-dwcm_milk_capacity_counter;Milk: [Root.dwcm_milk_quantity_CURRENT.GetValue]/[Root.dwcm_milk_capacity_TOTAL.GetValue]L;Lait : [Root.dwcm_milk_quantity_CURRENT.GetValue]/[Root.dwcm_milk_capacity_TOTAL.GetValue]L;;;;;;;;;;;;x
+dwcm_milk_capacity_counter;Hucow statistics;Statistiques de hucow;;;;;;;;;;;;x
+dwcm_milk_capacity_counter_desc;Milk: [Root.dwcm_milk_quantity_CURRENT.GetValue]/[Root.dwcm_milk_capacity_TOTAL.GetValue]L\nProduction rate : [Root.dwcm_milk_production_rate_TOTAL.GetValue]/month;Lait : [Root.dwcm_milk_quantity_CURRENT.GetValue]/[Root.dwcm_milk_capacity_TOTAL.GetValue]L\nTaux de production : [Root.dwcm_milk_production_rate_TOTAL.GetValue]/mois;;;;;;;;;;;;x
+breastfed_by_hucow;Breastfed by a hucow;Allaité par une hucow;;;;;;;;;;;;x
+breastfeeding;Breastfeeding;Allaitement;;;;;;;;;;;;x
 
 #Variables
 dwcm_milk_quantity_CURRENT;Milk;Lait;;;;;;;;;;;;x
